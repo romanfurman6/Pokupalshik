@@ -7,117 +7,114 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		40F2BD2E968DB2F4F346F35A /* Pods_Pokupalshik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E79B1D57A470DFA4F1E83BA9 /* Pods_Pokupalshik.framework */; };
-		5F4055431DD0785C000585E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4055421DD0785B000585E1 /* AppDelegate.swift */; };
-		5F4055481DD0785C000585E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F4055461DD0785C000585E1 /* Main.storyboard */; };
-		5F40554A1DD0785C000585E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F4055491DD0785C000585E1 /* Assets.xcassets */; };
-		5F40554D1DD0785C000585E1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F40554B1DD0785C000585E1 /* LaunchScreen.storyboard */; };
-		5F66BDC11DD1E0B700B557CD /* PokupalshikDB.db in Resources */ = {isa = PBXBuildFile; fileRef = 5FCAB9521DD0E95800D96BAC /* PokupalshikDB.db */; };
-		5FCAB9451DD0E6D300D96BAC /* ProductsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCAB9441DD0E6D300D96BAC /* ProductsTableViewController.swift */; };
-		5FCAB9471DD0E6E100D96BAC /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCAB9461DD0E6E100D96BAC /* HistoryTableViewController.swift */; };
-		5FCAB9491DD0E6F300D96BAC /* CartTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCAB9481DD0E6F300D96BAC /* CartTableViewController.swift */; };
-		5FCAB94B1DD0E72600D96BAC /* ProductsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCAB94A1DD0E72600D96BAC /* ProductsTableViewCell.swift */; };
-		5FCAB94D1DD0E73B00D96BAC /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCAB94C1DD0E73B00D96BAC /* HistoryTableViewCell.swift */; };
-		5FCAB9511DD0E7B300D96BAC /* DataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCAB9501DD0E7B300D96BAC /* DataBase.swift */; };
+		5FA4919D1DD63A7E0078BE41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4919C1DD63A7E0078BE41 /* AppDelegate.swift */; };
+		5FA491A21DD63A7E0078BE41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FA491A01DD63A7E0078BE41 /* Main.storyboard */; };
+		5FA491A41DD63A7E0078BE41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FA491A31DD63A7E0078BE41 /* Assets.xcassets */; };
+		5FA491A71DD63A7E0078BE41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FA491A51DD63A7E0078BE41 /* LaunchScreen.storyboard */; };
+		5FA491B41DD63B5A0078BE41 /* DatabaseManagable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA491AF1DD63B5A0078BE41 /* DatabaseManagable.swift */; };
+		5FA491B51DD63B5A0078BE41 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA491B01DD63B5A0078BE41 /* DatabaseService.swift */; };
+		5FA491B61DD63B5A0078BE41 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA491B11DD63B5A0078BE41 /* Extension.swift */; };
+		5FA491B71DD63B5A0078BE41 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA491B21DD63B5A0078BE41 /* Product.swift */; };
+		5FA491B81DD63B5A0078BE41 /* Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA491B31DD63B5A0078BE41 /* Purchase.swift */; };
+		5FA491BA1DD63BFA0078BE41 /* PokupalshikDB.db in Resources */ = {isa = PBXBuildFile; fileRef = 5FA491B91DD63B850078BE41 /* PokupalshikDB.db */; };
+		E02465B6CD8C4DE87727EEB2 /* Pods_Pokupalshik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F17656464689386910180B9 /* Pods_Pokupalshik.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0B41656E63CA64B24FC1C032 /* Pods-Pokupalshik.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pokupalshik.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pokupalshik/Pods-Pokupalshik.debug.xcconfig"; sourceTree = "<group>"; };
-		13008301D334A69CB936B8F2 /* Pods-Pokupalshik.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pokupalshik.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pokupalshik/Pods-Pokupalshik.release.xcconfig"; sourceTree = "<group>"; };
-		5F40553F1DD0785B000585E1 /* Pokupalshik.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokupalshik.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		5F4055421DD0785B000585E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5F4055471DD0785C000585E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		5F4055491DD0785C000585E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		5F40554C1DD0785C000585E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		5F40554E1DD0785C000585E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5FCAB9441DD0E6D300D96BAC /* ProductsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsTableViewController.swift; sourceTree = "<group>"; };
-		5FCAB9461DD0E6E100D96BAC /* HistoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
-		5FCAB9481DD0E6F300D96BAC /* CartTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartTableViewController.swift; sourceTree = "<group>"; };
-		5FCAB94A1DD0E72600D96BAC /* ProductsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsTableViewCell.swift; sourceTree = "<group>"; };
-		5FCAB94C1DD0E73B00D96BAC /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
-		5FCAB9501DD0E7B300D96BAC /* DataBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataBase.swift; sourceTree = "<group>"; };
-		5FCAB9521DD0E95800D96BAC /* PokupalshikDB.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = PokupalshikDB.db; sourceTree = "<group>"; };
-		E79B1D57A470DFA4F1E83BA9 /* Pods_Pokupalshik.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pokupalshik.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F17656464689386910180B9 /* Pods_Pokupalshik.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pokupalshik.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FA491991DD63A7E0078BE41 /* Pokupalshik.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokupalshik.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FA4919C1DD63A7E0078BE41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5FA491A11DD63A7E0078BE41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5FA491A31DD63A7E0078BE41 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5FA491A61DD63A7E0078BE41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5FA491A81DD63A7E0078BE41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5FA491AF1DD63B5A0078BE41 /* DatabaseManagable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManagable.swift; sourceTree = "<group>"; };
+		5FA491B01DD63B5A0078BE41 /* DatabaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
+		5FA491B11DD63B5A0078BE41 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		5FA491B21DD63B5A0078BE41 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		5FA491B31DD63B5A0078BE41 /* Purchase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Purchase.swift; sourceTree = "<group>"; };
+		5FA491B91DD63B850078BE41 /* PokupalshikDB.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = PokupalshikDB.db; sourceTree = "<group>"; };
+		68B41B561B184ABC4D929165 /* Pods-Pokupalshik.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pokupalshik.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pokupalshik/Pods-Pokupalshik.release.xcconfig"; sourceTree = "<group>"; };
+		8AF5C7A7C250FE13AB981FDE /* Pods-Pokupalshik.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pokupalshik.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pokupalshik/Pods-Pokupalshik.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		5F40553C1DD0785A000585E1 /* Frameworks */ = {
+		5FA491961DD63A7E0078BE41 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40F2BD2E968DB2F4F346F35A /* Pods_Pokupalshik.framework in Frameworks */,
+				E02465B6CD8C4DE87727EEB2 /* Pods_Pokupalshik.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2C77CE674B9E4CA6CE77BE48 /* Frameworks */ = {
+		5FA491901DD63A7E0078BE41 = {
 			isa = PBXGroup;
 			children = (
-				E79B1D57A470DFA4F1E83BA9 /* Pods_Pokupalshik.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		5F4055361DD0785A000585E1 = {
-			isa = PBXGroup;
-			children = (
-				5F4055411DD0785B000585E1 /* Pokupalshik */,
-				5F4055401DD0785B000585E1 /* Products */,
-				D4A2848BFCD16F0806030518 /* Pods */,
-				2C77CE674B9E4CA6CE77BE48 /* Frameworks */,
+				5FA4919B1DD63A7E0078BE41 /* Pokupalshik */,
+				5FA4919A1DD63A7E0078BE41 /* Products */,
+				D5EF2B97A7762928F0DACF0F /* Pods */,
+				778216E6834EBF1415F9449C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		5F4055401DD0785B000585E1 /* Products */ = {
+		5FA4919A1DD63A7E0078BE41 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5F40553F1DD0785B000585E1 /* Pokupalshik.app */,
+				5FA491991DD63A7E0078BE41 /* Pokupalshik.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5F4055411DD0785B000585E1 /* Pokupalshik */ = {
+		5FA4919B1DD63A7E0078BE41 /* Pokupalshik */ = {
 			isa = PBXGroup;
 			children = (
-				5F4055421DD0785B000585E1 /* AppDelegate.swift */,
-				5FCAB9441DD0E6D300D96BAC /* ProductsTableViewController.swift */,
-				5FCAB94A1DD0E72600D96BAC /* ProductsTableViewCell.swift */,
-				5FCAB9461DD0E6E100D96BAC /* HistoryTableViewController.swift */,
-				5FCAB94C1DD0E73B00D96BAC /* HistoryTableViewCell.swift */,
-				5FCAB9481DD0E6F300D96BAC /* CartTableViewController.swift */,
-				5FCAB94F1DD0E79100D96BAC /* DataBase */,
-				5FCAB94E1DD0E77600D96BAC /* Support files */,
+				5FA4919C1DD63A7E0078BE41 /* AppDelegate.swift */,
+				5FA491A01DD63A7E0078BE41 /* Main.storyboard */,
+				5FA491BB1DD63C0C0078BE41 /* SupportFiles */,
+				5FA491AE1DD63B4C0078BE41 /* Database */,
 			);
 			path = Pokupalshik;
 			sourceTree = "<group>";
 		};
-		5FCAB94E1DD0E77600D96BAC /* Support files */ = {
+		5FA491AE1DD63B4C0078BE41 /* Database */ = {
 			isa = PBXGroup;
 			children = (
-				5F4055461DD0785C000585E1 /* Main.storyboard */,
-				5F4055491DD0785C000585E1 /* Assets.xcassets */,
-				5F40554B1DD0785C000585E1 /* LaunchScreen.storyboard */,
-				5F40554E1DD0785C000585E1 /* Info.plist */,
+				5FA491B91DD63B850078BE41 /* PokupalshikDB.db */,
+				5FA491AF1DD63B5A0078BE41 /* DatabaseManagable.swift */,
+				5FA491B01DD63B5A0078BE41 /* DatabaseService.swift */,
+				5FA491B11DD63B5A0078BE41 /* Extension.swift */,
+				5FA491B21DD63B5A0078BE41 /* Product.swift */,
+				5FA491B31DD63B5A0078BE41 /* Purchase.swift */,
 			);
-			name = "Support files";
+			name = Database;
 			sourceTree = "<group>";
 		};
-		5FCAB94F1DD0E79100D96BAC /* DataBase */ = {
+		5FA491BB1DD63C0C0078BE41 /* SupportFiles */ = {
 			isa = PBXGroup;
 			children = (
-				5FCAB9521DD0E95800D96BAC /* PokupalshikDB.db */,
-				5FCAB9501DD0E7B300D96BAC /* DataBase.swift */,
+				5FA491A31DD63A7E0078BE41 /* Assets.xcassets */,
+				5FA491A51DD63A7E0078BE41 /* LaunchScreen.storyboard */,
+				5FA491A81DD63A7E0078BE41 /* Info.plist */,
 			);
-			name = DataBase;
+			name = SupportFiles;
 			sourceTree = "<group>";
 		};
-		D4A2848BFCD16F0806030518 /* Pods */ = {
+		778216E6834EBF1415F9449C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0B41656E63CA64B24FC1C032 /* Pods-Pokupalshik.debug.xcconfig */,
-				13008301D334A69CB936B8F2 /* Pods-Pokupalshik.release.xcconfig */,
+				1F17656464689386910180B9 /* Pods_Pokupalshik.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D5EF2B97A7762928F0DACF0F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8AF5C7A7C250FE13AB981FDE /* Pods-Pokupalshik.debug.xcconfig */,
+				68B41B561B184ABC4D929165 /* Pods-Pokupalshik.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -125,16 +122,16 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5F40553E1DD0785A000585E1 /* Pokupalshik */ = {
+		5FA491981DD63A7E0078BE41 /* Pokupalshik */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5F4055511DD0785C000585E1 /* Build configuration list for PBXNativeTarget "Pokupalshik" */;
+			buildConfigurationList = 5FA491AB1DD63A7E0078BE41 /* Build configuration list for PBXNativeTarget "Pokupalshik" */;
 			buildPhases = (
-				CF19C50F4F01F317036C95D9 /* [CP] Check Pods Manifest.lock */,
-				5F40553B1DD0785A000585E1 /* Sources */,
-				5F40553C1DD0785A000585E1 /* Frameworks */,
-				5F40553D1DD0785A000585E1 /* Resources */,
-				E2E6C477167D0A4B8E45D78F /* [CP] Embed Pods Frameworks */,
-				BF18A1D9D573283C0EFE6AD8 /* [CP] Copy Pods Resources */,
+				4045770D2F08715C73179819 /* [CP] Check Pods Manifest.lock */,
+				5FA491951DD63A7E0078BE41 /* Sources */,
+				5FA491961DD63A7E0078BE41 /* Frameworks */,
+				5FA491971DD63A7E0078BE41 /* Resources */,
+				6778F9E14CA4285B7FE952B4 /* [CP] Embed Pods Frameworks */,
+				23DB70A37FF09D6653D2FCF5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -142,26 +139,26 @@
 			);
 			name = Pokupalshik;
 			productName = Pokupalshik;
-			productReference = 5F40553F1DD0785B000585E1 /* Pokupalshik.app */;
+			productReference = 5FA491991DD63A7E0078BE41 /* Pokupalshik.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		5F4055371DD0785A000585E1 /* Project object */ = {
+		5FA491911DD63A7E0078BE41 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
 				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Roman Dmitrieivich";
 				TargetAttributes = {
-					5F40553E1DD0785A000585E1 = {
+					5FA491981DD63A7E0078BE41 = {
 						CreatedOnToolsVersion = 8.1;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = 5F40553A1DD0785A000585E1 /* Build configuration list for PBXProject "Pokupalshik" */;
+			buildConfigurationList = 5FA491941DD63A7E0078BE41 /* Build configuration list for PBXProject "Pokupalshik" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -169,32 +166,32 @@
 				en,
 				Base,
 			);
-			mainGroup = 5F4055361DD0785A000585E1;
-			productRefGroup = 5F4055401DD0785B000585E1 /* Products */;
+			mainGroup = 5FA491901DD63A7E0078BE41;
+			productRefGroup = 5FA4919A1DD63A7E0078BE41 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5F40553E1DD0785A000585E1 /* Pokupalshik */,
+				5FA491981DD63A7E0078BE41 /* Pokupalshik */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		5F40553D1DD0785A000585E1 /* Resources */ = {
+		5FA491971DD63A7E0078BE41 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F40554D1DD0785C000585E1 /* LaunchScreen.storyboard in Resources */,
-				5F66BDC11DD1E0B700B557CD /* PokupalshikDB.db in Resources */,
-				5F40554A1DD0785C000585E1 /* Assets.xcassets in Resources */,
-				5F4055481DD0785C000585E1 /* Main.storyboard in Resources */,
+				5FA491BA1DD63BFA0078BE41 /* PokupalshikDB.db in Resources */,
+				5FA491A71DD63A7E0078BE41 /* LaunchScreen.storyboard in Resources */,
+				5FA491A41DD63A7E0078BE41 /* Assets.xcassets in Resources */,
+				5FA491A21DD63A7E0078BE41 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		BF18A1D9D573283C0EFE6AD8 /* [CP] Copy Pods Resources */ = {
+		23DB70A37FF09D6653D2FCF5 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -209,7 +206,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Pokupalshik/Pods-Pokupalshik-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CF19C50F4F01F317036C95D9 /* [CP] Check Pods Manifest.lock */ = {
+		4045770D2F08715C73179819 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -224,7 +221,7 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		E2E6C477167D0A4B8E45D78F /* [CP] Embed Pods Frameworks */ = {
+		6778F9E14CA4285B7FE952B4 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -242,35 +239,34 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		5F40553B1DD0785A000585E1 /* Sources */ = {
+		5FA491951DD63A7E0078BE41 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5FCAB9471DD0E6E100D96BAC /* HistoryTableViewController.swift in Sources */,
-				5F4055431DD0785C000585E1 /* AppDelegate.swift in Sources */,
-				5FCAB94D1DD0E73B00D96BAC /* HistoryTableViewCell.swift in Sources */,
-				5FCAB9451DD0E6D300D96BAC /* ProductsTableViewController.swift in Sources */,
-				5FCAB9511DD0E7B300D96BAC /* DataBase.swift in Sources */,
-				5FCAB94B1DD0E72600D96BAC /* ProductsTableViewCell.swift in Sources */,
-				5FCAB9491DD0E6F300D96BAC /* CartTableViewController.swift in Sources */,
+				5FA491B51DD63B5A0078BE41 /* DatabaseService.swift in Sources */,
+				5FA4919D1DD63A7E0078BE41 /* AppDelegate.swift in Sources */,
+				5FA491B81DD63B5A0078BE41 /* Purchase.swift in Sources */,
+				5FA491B71DD63B5A0078BE41 /* Product.swift in Sources */,
+				5FA491B41DD63B5A0078BE41 /* DatabaseManagable.swift in Sources */,
+				5FA491B61DD63B5A0078BE41 /* Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		5F4055461DD0785C000585E1 /* Main.storyboard */ = {
+		5FA491A01DD63A7E0078BE41 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				5F4055471DD0785C000585E1 /* Base */,
+				5FA491A11DD63A7E0078BE41 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		5F40554B1DD0785C000585E1 /* LaunchScreen.storyboard */ = {
+		5FA491A51DD63A7E0078BE41 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				5F40554C1DD0785C000585E1 /* Base */,
+				5FA491A61DD63A7E0078BE41 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -278,7 +274,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		5F40554F1DD0785C000585E1 /* Debug */ = {
+		5FA491A91DD63A7E0078BE41 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -296,7 +292,6 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -328,7 +323,7 @@
 			};
 			name = Debug;
 		};
-		5F4055501DD0785C000585E1 /* Release */ = {
+		5FA491AA1DD63A7E0078BE41 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -346,7 +341,6 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -371,11 +365,10 @@
 			};
 			name = Release;
 		};
-		5F4055521DD0785C000585E1 /* Debug */ = {
+		5FA491AC1DD63A7E0078BE41 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0B41656E63CA64B24FC1C032 /* Pods-Pokupalshik.debug.xcconfig */;
+			baseConfigurationReference = 8AF5C7A7C250FE13AB981FDE /* Pods-Pokupalshik.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Pokupalshik/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -385,11 +378,10 @@
 			};
 			name = Debug;
 		};
-		5F4055531DD0785C000585E1 /* Release */ = {
+		5FA491AD1DD63A7E0078BE41 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 13008301D334A69CB936B8F2 /* Pods-Pokupalshik.release.xcconfig */;
+			baseConfigurationReference = 68B41B561B184ABC4D929165 /* Pods-Pokupalshik.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Pokupalshik/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -402,25 +394,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5F40553A1DD0785A000585E1 /* Build configuration list for PBXProject "Pokupalshik" */ = {
+		5FA491941DD63A7E0078BE41 /* Build configuration list for PBXProject "Pokupalshik" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5F40554F1DD0785C000585E1 /* Debug */,
-				5F4055501DD0785C000585E1 /* Release */,
+				5FA491A91DD63A7E0078BE41 /* Debug */,
+				5FA491AA1DD63A7E0078BE41 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5F4055511DD0785C000585E1 /* Build configuration list for PBXNativeTarget "Pokupalshik" */ = {
+		5FA491AB1DD63A7E0078BE41 /* Build configuration list for PBXNativeTarget "Pokupalshik" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5F4055521DD0785C000585E1 /* Debug */,
-				5F4055531DD0785C000585E1 /* Release */,
+				5FA491AC1DD63A7E0078BE41 /* Debug */,
+				5FA491AD1DD63A7E0078BE41 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 5F4055371DD0785A000585E1 /* Project object */;
+	rootObject = 5FA491911DD63A7E0078BE41 /* Project object */;
 }

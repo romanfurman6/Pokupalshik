@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5F40553E1DD0785A000585E1"
+               BlueprintIdentifier = "5FA491981DD63A7E0078BE41"
                BuildableName = "Pokupalshik.app"
                BlueprintName = "Pokupalshik"
                ReferencedContainer = "container:Pokupalshik.xcodeproj">
@@ -32,7 +32,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5F40553E1DD0785A000585E1"
+            BlueprintIdentifier = "5FA491981DD63A7E0078BE41"
             BuildableName = "Pokupalshik.app"
             BlueprintName = "Pokupalshik"
             ReferencedContainer = "container:Pokupalshik.xcodeproj">
@@ -55,7 +55,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5F40553E1DD0785A000585E1"
+            BlueprintIdentifier = "5FA491981DD63A7E0078BE41"
             BuildableName = "Pokupalshik.app"
             BlueprintName = "Pokupalshik"
             ReferencedContainer = "container:Pokupalshik.xcodeproj">
@@ -74,7 +74,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5F40553E1DD0785A000585E1"
+            BlueprintIdentifier = "5FA491981DD63A7E0078BE41"
             BuildableName = "Pokupalshik.app"
             BlueprintName = "Pokupalshik"
             ReferencedContainer = "container:Pokupalshik.xcodeproj">
