@@ -3,7 +3,7 @@
 import Foundation
 
 class ProductsCart {
-    private var productsList: [Product] = []
+    var productsList: [Product] = []
     
     func add(product: Product) {
         productsList.append(product)

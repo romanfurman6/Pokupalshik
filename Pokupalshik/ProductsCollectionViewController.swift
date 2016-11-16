@@ -14,7 +14,7 @@ class ProductsCollectionViewController: UICollectionViewController {
 
     let cartBarButton: MIBadgeButton = MIBadgeButton(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
 
-    func createCartButtomWithBadge() {
+    func createCartButtonWithBadge() {
         cartBarButton.setImage(UIImage(named: "Cart"), for: .normal)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: cartBarButton)
         cartBarButton.addTarget(self,
@@ -22,15 +22,16 @@ class ProductsCollectionViewController: UICollectionViewController {
                                 for: .touchUpInside)
 
     }
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        createCartButtomWithBadge()
+
+        createCartButtonWithBadge()
         
         collectionView?.backgroundColor = UIColor(red: 235.0/255.0, green: 235.0/255.0, blue: 235.0/255.0, alpha: 1)
         
         productList = Product.service.fetchObjects()
+        
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -59,8 +60,7 @@ class ProductsCollectionViewController: UICollectionViewController {
         return cell
     }
     func badgeCounter() {
-        count+=1
-        cartBarButton.badgeString = "\(count)"
+        cartBarButton.badgeString = "\(productsCart.productsList.count)"
     }
     
     

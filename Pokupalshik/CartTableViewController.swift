@@ -11,17 +11,34 @@ import UIKit
 class CartTableViewController: UITableViewController {
     
     var cartDictionary = [(Product, Int)]()
-   
     
-
+    let cartBarButton: UIButton = UIButton(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
+    
+    func createCartButton() {
+        cartBarButton.setImage(UIImage(named: "Cart"), for: .normal)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: cartBarButton)
+        cartBarButton.addTarget(self,
+                                action: #selector(purchase),
+                                for: .touchUpInside)
+        
+    }
+    
+    func purchase() {
+        let newPurchase = Purchases(time: NSDate())
+        let newPurchaseId = Purchases.service.insert(object: newPurchase)
+        for i in cartDictionary {
+            let newPackage = Package(productCount: Int64(i.1), productId: i.0.id, purchaseId: newPurchaseId)
+            _ = Package.service.insert(object: newPackage)
+        }
+    }
+    
+    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
+        createCartButton()
         tableView.backgroundColor = UIColor(red: 235.0/255.0, green: 235.0/255.0, blue: 235.0/255.0, alpha: 1)
 
-    }
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -40,7 +57,8 @@ class CartTableViewController: UITableViewController {
 
         return cell
     }
- 
+    
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -50,7 +68,7 @@ class CartTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -60,7 +78,7 @@ class CartTableViewController: UITableViewController {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.

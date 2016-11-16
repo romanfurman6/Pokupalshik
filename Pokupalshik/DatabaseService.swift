@@ -62,21 +62,19 @@ class DatabaseService<Z: DatabaseManagable> {
         guard let result = try? service.prepare("SELECT * FROM \(Z.tableName)") else {
             fatalError()
         }
-        
-        return result.map { row -> [String : Any] in
+        let z: [Z] = result.map { row -> [String : Any] in
             
             var dict = [String: Any]()
-
-                row
-                    
-                    .enumerated()
-                    .forEach { (index, item) in
-                        dict[result.columnNames[index]] = item
-                    }
-
+            row
+                .enumerated()
+                .forEach { (index, item) in
+                    dict[result.columnNames[index]] = item
+            }
             
-                return dict
+            return dict
             }.flatMap { Z(dict: $0) }
+        print("z=\(z)")
+        return z
     }
     
     func insert(object: Z) -> Int64 {

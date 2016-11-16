@@ -9,20 +9,23 @@
 import Foundation
 import SQLite
 
-struct Purchase: DatabaseManagable {
+struct Purchases {
     
-    static let service = DatabaseService<Purchase>()
+    static let service = DatabaseService<Purchases>()
     
     static var tableName = "purchases"
     
     var id: Int64 = 0
     var time: NSDate
     
-    private struct Keys {
+    fileprivate struct Keys {
         static let id = "id"
         static let time = "time"
     }
-    
+
+}
+
+extension Purchases: DatabaseManagable {
     init?(dict:[String:Any]) {
         
         guard
@@ -32,7 +35,7 @@ struct Purchase: DatabaseManagable {
             else {
                 return nil
         }
-    
+        
         self.id = id
         self.time = NSDate(timeIntervalSinceReferenceDate: Double(time))
     }
@@ -40,9 +43,8 @@ struct Purchase: DatabaseManagable {
     init(time: NSDate) {
         self.time = time
     }
-
+    
     var fields: [String: Any] {
         return [Keys.time: Int(self.time.timeIntervalSinceReferenceDate)]
     }
 }
-
