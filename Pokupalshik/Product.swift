@@ -9,8 +9,7 @@
 import Foundation
 import SQLite
 
-struct Product: DatabaseManagable {
-    
+struct Product {
     static let service = DatabaseService<Product>()
     
     static var tableName = "products"
@@ -19,21 +18,21 @@ struct Product: DatabaseManagable {
     var name: String
     var price: Double
     
-    private struct Keys {
+    fileprivate struct Keys {
         static let id = "id"
         static let name = "name"
         static let price = "price"
     }
-    
-    
-    
+}
+
+extension Product: DatabaseManagable {
     init?(dict: [String:Any]) {
         guard
             let id = dict[Keys.id] as? Int64,
             let name = dict[Keys.name] as? String,
             let price = dict[Keys.price] as? Double
-        else {
-            return nil
+            else {
+                return nil
         }
         self.id = id
         self.name = name
@@ -48,6 +47,15 @@ struct Product: DatabaseManagable {
     var fields: [String: Any] {
         return [Keys.name:self.name, Keys.price:self.price]
     }
-    
-    
+}
+
+extension Product: Equatable { }
+func ==(lhs: Product, rhs: Product) -> Bool {
+    return lhs.id == rhs.id
+}
+
+extension Product: Hashable {
+    var hashValue: Int {
+        return Int(id)
+    }
 }

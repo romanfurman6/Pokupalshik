@@ -7,8 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F2DF5311DD8B79800AD667D /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2DF52E1DD8B79800AD667D /* CollectionViewCell.swift */; };
+		5F2DF5321DD8B79800AD667D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F2DF52F1DD8B79800AD667D /* Main.storyboard */; };
+		5F2DF5331DD8B79800AD667D /* ProductsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2DF5301DD8B79800AD667D /* ProductsCollectionViewController.swift */; };
+		5F2DF5371DD9C80500AD667D /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2DF5361DD9C80500AD667D /* CartTableViewCell.swift */; };
+		5F2DF5391DDA2EE600AD667D /* ProductsCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2DF5381DDA2EE600AD667D /* ProductsCart.swift */; };
+		5F2DF53B1DDA32B900AD667D /* CartTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2DF53A1DDA32B900AD667D /* CartTableViewController.swift */; };
 		5FA4919D1DD63A7E0078BE41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4919C1DD63A7E0078BE41 /* AppDelegate.swift */; };
-		5FA491A21DD63A7E0078BE41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FA491A01DD63A7E0078BE41 /* Main.storyboard */; };
 		5FA491A41DD63A7E0078BE41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FA491A31DD63A7E0078BE41 /* Assets.xcassets */; };
 		5FA491A71DD63A7E0078BE41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FA491A51DD63A7E0078BE41 /* LaunchScreen.storyboard */; };
 		5FA491B41DD63B5A0078BE41 /* DatabaseManagable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA491AF1DD63B5A0078BE41 /* DatabaseManagable.swift */; };
@@ -22,9 +27,14 @@
 
 /* Begin PBXFileReference section */
 		1F17656464689386910180B9 /* Pods_Pokupalshik.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pokupalshik.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F2DF52E1DD8B79800AD667D /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		5F2DF52F1DD8B79800AD667D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		5F2DF5301DD8B79800AD667D /* ProductsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsCollectionViewController.swift; sourceTree = "<group>"; };
+		5F2DF5361DD9C80500AD667D /* CartTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
+		5F2DF5381DDA2EE600AD667D /* ProductsCart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsCart.swift; sourceTree = "<group>"; };
+		5F2DF53A1DDA32B900AD667D /* CartTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartTableViewController.swift; sourceTree = "<group>"; };
 		5FA491991DD63A7E0078BE41 /* Pokupalshik.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokupalshik.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FA4919C1DD63A7E0078BE41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5FA491A11DD63A7E0078BE41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5FA491A31DD63A7E0078BE41 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5FA491A61DD63A7E0078BE41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5FA491A81DD63A7E0078BE41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -71,8 +81,14 @@
 		5FA4919B1DD63A7E0078BE41 /* Pokupalshik */ = {
 			isa = PBXGroup;
 			children = (
+				5FA491C01DD641DC0078BE41 /* New Group */,
 				5FA4919C1DD63A7E0078BE41 /* AppDelegate.swift */,
-				5FA491A01DD63A7E0078BE41 /* Main.storyboard */,
+				5F2DF52E1DD8B79800AD667D /* CollectionViewCell.swift */,
+				5F2DF52F1DD8B79800AD667D /* Main.storyboard */,
+				5F2DF53A1DDA32B900AD667D /* CartTableViewController.swift */,
+				5F2DF5361DD9C80500AD667D /* CartTableViewCell.swift */,
+				5F2DF5301DD8B79800AD667D /* ProductsCollectionViewController.swift */,
+				5F2DF5381DDA2EE600AD667D /* ProductsCart.swift */,
 				5FA491BB1DD63C0C0078BE41 /* SupportFiles */,
 				5FA491AE1DD63B4C0078BE41 /* Database */,
 			);
@@ -100,6 +116,13 @@
 				5FA491A81DD63A7E0078BE41 /* Info.plist */,
 			);
 			name = SupportFiles;
+			sourceTree = "<group>";
+		};
+		5FA491C01DD641DC0078BE41 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group";
 			sourceTree = "<group>";
 		};
 		778216E6834EBF1415F9449C /* Frameworks */ = {
@@ -184,7 +207,7 @@
 				5FA491BA1DD63BFA0078BE41 /* PokupalshikDB.db in Resources */,
 				5FA491A71DD63A7E0078BE41 /* LaunchScreen.storyboard in Resources */,
 				5FA491A41DD63A7E0078BE41 /* Assets.xcassets in Resources */,
-				5FA491A21DD63A7E0078BE41 /* Main.storyboard in Resources */,
+				5F2DF5321DD8B79800AD667D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,7 +241,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		6778F9E14CA4285B7FE952B4 /* [CP] Embed Pods Frameworks */ = {
@@ -244,10 +267,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				5FA491B51DD63B5A0078BE41 /* DatabaseService.swift in Sources */,
+				5F2DF53B1DDA32B900AD667D /* CartTableViewController.swift in Sources */,
 				5FA4919D1DD63A7E0078BE41 /* AppDelegate.swift in Sources */,
 				5FA491B81DD63B5A0078BE41 /* Purchase.swift in Sources */,
+				5F2DF5391DDA2EE600AD667D /* ProductsCart.swift in Sources */,
+				5F2DF5311DD8B79800AD667D /* CollectionViewCell.swift in Sources */,
 				5FA491B71DD63B5A0078BE41 /* Product.swift in Sources */,
 				5FA491B41DD63B5A0078BE41 /* DatabaseManagable.swift in Sources */,
+				5F2DF5331DD8B79800AD667D /* ProductsCollectionViewController.swift in Sources */,
+				5F2DF5371DD9C80500AD667D /* CartTableViewCell.swift in Sources */,
 				5FA491B61DD63B5A0078BE41 /* Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -255,14 +283,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		5FA491A01DD63A7E0078BE41 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5FA491A11DD63A7E0078BE41 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		5FA491A51DD63A7E0078BE41 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -292,6 +312,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -341,6 +362,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -369,12 +391,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8AF5C7A7C250FE13AB981FDE /* Pods-Pokupalshik.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Pokupalshik/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dmitrievichR.Pokupalshik;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 3.0.1;
 			};
 			name = Debug;
 		};
@@ -382,12 +405,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 68B41B561B184ABC4D929165 /* Pods-Pokupalshik.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Pokupalshik/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dmitrievichR.Pokupalshik;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 3.0.1;
 			};
 			name = Release;
 		};
