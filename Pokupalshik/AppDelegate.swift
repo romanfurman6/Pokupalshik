@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  Pokupalshik
 //
-//  Created by Roman Dmitrieivich on 11/7/16.
+//  Created by Roman Dmitrieivich on 11/11/16.
 //  Copyright © 2016 Roman Dmitrieivich. All rights reserved.
 //
 
