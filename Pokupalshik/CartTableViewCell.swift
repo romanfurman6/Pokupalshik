@@ -14,17 +14,16 @@ class CartTableViewCell: UITableViewCell {
     @IBOutlet weak var cartNameLabel: UILabel!
     @IBOutlet weak var cartPriceLabel: UILabel!
     @IBOutlet weak var countOfProduct: UILabel!
-    
-    
+    @IBOutlet weak var plusButton: UIButton!
+    @IBOutlet weak var minusButton: UIButton!
+        
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
     }
 
 }

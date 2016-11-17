@@ -6,11 +6,14 @@ class ProductsCollectionViewController: UICollectionViewController {
     
     var productList = [Product]()
     var count = 0
-    var productsCart = ProductsCart()
+    var cart = ProductsCart()
     
     
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        badgeCounter()
+    }
 
     let cartBarButton: MIBadgeButton = MIBadgeButton(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
 
@@ -25,7 +28,6 @@ class ProductsCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         createCartButtonWithBadge()
         
         collectionView?.backgroundColor = UIColor(red: 235.0/255.0, green: 235.0/255.0, blue: 235.0/255.0, alpha: 1)
@@ -56,28 +58,28 @@ class ProductsCollectionViewController: UICollectionViewController {
         cell.layer.masksToBounds = false
         
         
-        
         return cell
     }
     func badgeCounter() {
-        cartBarButton.badgeString = "\(productsCart.productsList.count)"
+        if cart.countOfProduct == 0 {
+            cartBarButton.badgeString = nil
+        } else {
+            cartBarButton.badgeString = "\(cart.countOfProduct)"
+        }
+        
     }
-    
     
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let product = productList[indexPath.row]
-    
-        productsCart.add(product: product)
+        cart.add(product: product)
         badgeCounter()
-        
-        print(product.name)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "cartSegue" {
-            let cartVC = segue.destination as! CartTableViewController
-            cartVC.cartDictionary = productsCart.products
+            let cartVC = segue.destination as! CartViewController
+            cartVC.productsCart = cart
         }
     }
     

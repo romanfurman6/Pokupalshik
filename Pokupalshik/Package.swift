@@ -14,43 +14,47 @@ struct Package: DatabaseManagable {
     
     static var tableName = "productsPurchases"
     
-    var id: Int64 = 0
-    var productCount: Int64
+    
+    var id: Int64
     var productId: Int64
-    var purchaseId: Int64
+    var productCount: Int64
+    
+    
     
     
     fileprivate struct Keys {
-        static let productCount = "productCount"
+        static let id = "id"
         static let productId = "productId"
-        static let purchaseId = "purchaseId"
+        static let productCount = "productCount"
     }
     
     init?(dict:[String:Any]) {
         
         guard
-            let productCount = dict[Keys.productCount] as? Int64,
+            let id = dict[Keys.id] as? Int64,
             let productId = dict[Keys.productId] as? Int64,
-            let purchaseId = dict[Keys.purchaseId] as? Int64
+            let productCount = dict[Keys.productCount] as? Int64
+
             else {
                 return nil
         }
         
-        self.productCount = productCount
+        self.id = id
         self.productId = productId
-        self.purchaseId = purchaseId
+        self.productCount = productCount
         
     }
     
-    init(productCount: Int64, productId: Int64, purchaseId: Int64) {
-        self.productCount = productCount
+    init(id: Int64, productId: Int64, productCount: Int64) {
+        self.id = id
         self.productId = productId
-        self.purchaseId = purchaseId
+        self.productCount = productCount
+
         
     }
     
     var fields: [String: Any] {
-        return [Keys.productCount: self.productCount, Keys.productId: self.productId, Keys.purchaseId: self.purchaseId]
+        return [Keys.id: self.id, Keys.productId: self.productId, Keys.productCount: self.productCount]
     }
     
 }

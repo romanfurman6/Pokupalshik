@@ -8,12 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		5F2DF5311DD8B79800AD667D /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2DF52E1DD8B79800AD667D /* CollectionViewCell.swift */; };
-		5F2DF5321DD8B79800AD667D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F2DF52F1DD8B79800AD667D /* Main.storyboard */; };
 		5F2DF5331DD8B79800AD667D /* ProductsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2DF5301DD8B79800AD667D /* ProductsCollectionViewController.swift */; };
 		5F2DF5371DD9C80500AD667D /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2DF5361DD9C80500AD667D /* CartTableViewCell.swift */; };
 		5F2DF5391DDA2EE600AD667D /* ProductsCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2DF5381DDA2EE600AD667D /* ProductsCart.swift */; };
-		5F2DF53B1DDA32B900AD667D /* CartTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2DF53A1DDA32B900AD667D /* CartTableViewController.swift */; };
 		5F2DF53D1DDBA19300AD667D /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2DF53C1DDBA19300AD667D /* Package.swift */; };
+		5F2DF5451DDCB0B500AD667D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F2DF5441DDCB0B500AD667D /* Main.storyboard */; };
+		5F2DF5491DDCE1CF00AD667D /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2DF5481DDCE1CF00AD667D /* CartViewController.swift */; };
+		5F2DF54F1DDCF32100AD667D /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2DF54E1DDCF32100AD667D /* HistoryTableViewController.swift */; };
+		5F2DF5511DDCF33400AD667D /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2DF5501DDCF33400AD667D /* HistoryTableViewCell.swift */; };
+		5F2DF5531DDDF42000AD667D /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2DF5521DDDF42000AD667D /* APIManager.swift */; };
+		5F2DF5571DDE1B2C00AD667D /* PurchaseHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2DF5561DDE1B2C00AD667D /* PurchaseHistory.swift */; };
 		5FA4919D1DD63A7E0078BE41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4919C1DD63A7E0078BE41 /* AppDelegate.swift */; };
 		5FA491A41DD63A7E0078BE41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FA491A31DD63A7E0078BE41 /* Assets.xcassets */; };
 		5FA491A71DD63A7E0078BE41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FA491A51DD63A7E0078BE41 /* LaunchScreen.storyboard */; };
@@ -29,12 +33,16 @@
 /* Begin PBXFileReference section */
 		1F17656464689386910180B9 /* Pods_Pokupalshik.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pokupalshik.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F2DF52E1DD8B79800AD667D /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
-		5F2DF52F1DD8B79800AD667D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		5F2DF5301DD8B79800AD667D /* ProductsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsCollectionViewController.swift; sourceTree = "<group>"; };
 		5F2DF5361DD9C80500AD667D /* CartTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
 		5F2DF5381DDA2EE600AD667D /* ProductsCart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsCart.swift; sourceTree = "<group>"; };
-		5F2DF53A1DDA32B900AD667D /* CartTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartTableViewController.swift; sourceTree = "<group>"; };
 		5F2DF53C1DDBA19300AD667D /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		5F2DF5441DDCB0B500AD667D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		5F2DF5481DDCE1CF00AD667D /* CartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		5F2DF54E1DDCF32100AD667D /* HistoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
+		5F2DF5501DDCF33400AD667D /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
+		5F2DF5521DDDF42000AD667D /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		5F2DF5561DDE1B2C00AD667D /* PurchaseHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseHistory.swift; sourceTree = "<group>"; };
 		5FA491991DD63A7E0078BE41 /* Pokupalshik.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokupalshik.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FA4919C1DD63A7E0078BE41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5FA491A31DD63A7E0078BE41 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -62,6 +70,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5F2DF53E1DDC70EA00AD667D /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				5F2DF5481DDCE1CF00AD667D /* CartViewController.swift */,
+				5F2DF5361DD9C80500AD667D /* CartTableViewCell.swift */,
+				5F2DF5381DDA2EE600AD667D /* ProductsCart.swift */,
+			);
+			name = Cart;
+			sourceTree = "<group>";
+		};
+		5F2DF53F1DDC711D00AD667D /* History */ = {
+			isa = PBXGroup;
+			children = (
+				5F2DF54E1DDCF32100AD667D /* HistoryTableViewController.swift */,
+				5F2DF5501DDCF33400AD667D /* HistoryTableViewCell.swift */,
+				5F2DF5561DDE1B2C00AD667D /* PurchaseHistory.swift */,
+			);
+			name = History;
+			sourceTree = "<group>";
+		};
 		5FA491901DD63A7E0078BE41 = {
 			isa = PBXGroup;
 			children = (
@@ -83,14 +111,11 @@
 		5FA4919B1DD63A7E0078BE41 /* Pokupalshik */ = {
 			isa = PBXGroup;
 			children = (
-				5FA491C01DD641DC0078BE41 /* New Group */,
 				5FA4919C1DD63A7E0078BE41 /* AppDelegate.swift */,
-				5F2DF52E1DD8B79800AD667D /* CollectionViewCell.swift */,
-				5F2DF52F1DD8B79800AD667D /* Main.storyboard */,
-				5F2DF53A1DDA32B900AD667D /* CartTableViewController.swift */,
-				5F2DF5361DD9C80500AD667D /* CartTableViewCell.swift */,
-				5F2DF5301DD8B79800AD667D /* ProductsCollectionViewController.swift */,
-				5F2DF5381DDA2EE600AD667D /* ProductsCart.swift */,
+				5F2DF5441DDCB0B500AD667D /* Main.storyboard */,
+				5FA491C01DD641DC0078BE41 /* ProductsList */,
+				5F2DF53E1DDC70EA00AD667D /* Cart */,
+				5F2DF53F1DDC711D00AD667D /* History */,
 				5FA491BB1DD63C0C0078BE41 /* SupportFiles */,
 				5FA491AE1DD63B4C0078BE41 /* Database */,
 			);
@@ -103,7 +128,6 @@
 				5FA491B91DD63B850078BE41 /* PokupalshikDB.db */,
 				5FA491AF1DD63B5A0078BE41 /* DatabaseManagable.swift */,
 				5FA491B01DD63B5A0078BE41 /* DatabaseService.swift */,
-				5FA491B11DD63B5A0078BE41 /* Extension.swift */,
 				5FA491B21DD63B5A0078BE41 /* Product.swift */,
 				5FA491B31DD63B5A0078BE41 /* Purchases.swift */,
 				5F2DF53C1DDBA19300AD667D /* Package.swift */,
@@ -114,6 +138,8 @@
 		5FA491BB1DD63C0C0078BE41 /* SupportFiles */ = {
 			isa = PBXGroup;
 			children = (
+				5FA491B11DD63B5A0078BE41 /* Extension.swift */,
+				5F2DF5521DDDF42000AD667D /* APIManager.swift */,
 				5FA491A31DD63A7E0078BE41 /* Assets.xcassets */,
 				5FA491A51DD63A7E0078BE41 /* LaunchScreen.storyboard */,
 				5FA491A81DD63A7E0078BE41 /* Info.plist */,
@@ -121,11 +147,13 @@
 			name = SupportFiles;
 			sourceTree = "<group>";
 		};
-		5FA491C01DD641DC0078BE41 /* New Group */ = {
+		5FA491C01DD641DC0078BE41 /* ProductsList */ = {
 			isa = PBXGroup;
 			children = (
+				5F2DF5301DD8B79800AD667D /* ProductsCollectionViewController.swift */,
+				5F2DF52E1DD8B79800AD667D /* CollectionViewCell.swift */,
 			);
-			name = "New Group";
+			name = ProductsList;
 			sourceTree = "<group>";
 		};
 		778216E6834EBF1415F9449C /* Frameworks */ = {
@@ -210,7 +238,7 @@
 				5FA491BA1DD63BFA0078BE41 /* PokupalshikDB.db in Resources */,
 				5FA491A71DD63A7E0078BE41 /* LaunchScreen.storyboard in Resources */,
 				5FA491A41DD63A7E0078BE41 /* Assets.xcassets in Resources */,
-				5F2DF5321DD8B79800AD667D /* Main.storyboard in Resources */,
+				5F2DF5451DDCB0B500AD667D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,17 +298,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				5FA491B51DD63B5A0078BE41 /* DatabaseService.swift in Sources */,
-				5F2DF53B1DDA32B900AD667D /* CartTableViewController.swift in Sources */,
 				5FA4919D1DD63A7E0078BE41 /* AppDelegate.swift in Sources */,
+				5F2DF5511DDCF33400AD667D /* HistoryTableViewCell.swift in Sources */,
 				5FA491B81DD63B5A0078BE41 /* Purchases.swift in Sources */,
 				5F2DF5391DDA2EE600AD667D /* ProductsCart.swift in Sources */,
 				5F2DF5311DD8B79800AD667D /* CollectionViewCell.swift in Sources */,
+				5F2DF5491DDCE1CF00AD667D /* CartViewController.swift in Sources */,
 				5FA491B71DD63B5A0078BE41 /* Product.swift in Sources */,
 				5FA491B41DD63B5A0078BE41 /* DatabaseManagable.swift in Sources */,
 				5F2DF53D1DDBA19300AD667D /* Package.swift in Sources */,
 				5F2DF5331DD8B79800AD667D /* ProductsCollectionViewController.swift in Sources */,
 				5F2DF5371DD9C80500AD667D /* CartTableViewCell.swift in Sources */,
+				5F2DF5531DDDF42000AD667D /* APIManager.swift in Sources */,
+				5F2DF5571DDE1B2C00AD667D /* PurchaseHistory.swift in Sources */,
 				5FA491B61DD63B5A0078BE41 /* Extension.swift in Sources */,
+				5F2DF54F1DDCF32100AD667D /* HistoryTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,6 +429,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Pokupalshik/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dmitrievichR.Pokupalshik;
@@ -411,6 +444,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Pokupalshik/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dmitrievichR.Pokupalshik;
