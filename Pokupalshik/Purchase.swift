@@ -9,9 +9,9 @@
 import Foundation
 import SQLite
 
-struct Purchases {
+struct Purchase {
     
-    static let service = DatabaseService<Purchases>()
+    static let service = DatabaseService<Purchase>()
     
     static var tableName = "purchases"
     
@@ -29,7 +29,7 @@ struct Purchases {
 
 }
 
-extension Purchases: DatabaseManagable {
+extension Purchase: DatabaseManagable {
     init?(dict:[String:Any]) {
         
         guard
@@ -57,12 +57,12 @@ extension Purchases: DatabaseManagable {
     }
 }
 
-extension Purchases: Equatable { }
-func ==(lhs: Purchases, rhs: Purchases) -> Bool {
+extension Purchase: Equatable { }
+func ==(lhs: Purchase, rhs: Purchase) -> Bool {
     return lhs.id == rhs.id
 }
 
-extension Purchases: Hashable {
+extension Purchase: Hashable {
     var hashValue: Int {
         return Int(id)
     }

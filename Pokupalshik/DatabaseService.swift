@@ -117,5 +117,11 @@ class DatabaseService<Z: DatabaseManagable> {
         let query = "DELETE FROM \(Z.tableName) WHERE id = \(withId)"
         try! self.service.execute(query)
     }
+    
+    func deleteTwoObject(withId: Int64, secondId: Int64) {
+        let query = "DELETE FROM \(Z.tableName) WHERE id = \(withId) AND productId = \(secondId)"
+        try! self.service.execute(query)
+    }
+    
 }
 

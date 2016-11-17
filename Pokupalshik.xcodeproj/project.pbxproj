@@ -25,7 +25,7 @@
 		5FA491B51DD63B5A0078BE41 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA491B01DD63B5A0078BE41 /* DatabaseService.swift */; };
 		5FA491B61DD63B5A0078BE41 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA491B11DD63B5A0078BE41 /* Extension.swift */; };
 		5FA491B71DD63B5A0078BE41 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA491B21DD63B5A0078BE41 /* Product.swift */; };
-		5FA491B81DD63B5A0078BE41 /* Purchases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA491B31DD63B5A0078BE41 /* Purchases.swift */; };
+		5FA491B81DD63B5A0078BE41 /* Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA491B31DD63B5A0078BE41 /* Purchase.swift */; };
 		5FA491BA1DD63BFA0078BE41 /* PokupalshikDB.db in Resources */ = {isa = PBXBuildFile; fileRef = 5FA491B91DD63B850078BE41 /* PokupalshikDB.db */; };
 		E02465B6CD8C4DE87727EEB2 /* Pods_Pokupalshik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F17656464689386910180B9 /* Pods_Pokupalshik.framework */; };
 /* End PBXBuildFile section */
@@ -52,7 +52,7 @@
 		5FA491B01DD63B5A0078BE41 /* DatabaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		5FA491B11DD63B5A0078BE41 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		5FA491B21DD63B5A0078BE41 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
-		5FA491B31DD63B5A0078BE41 /* Purchases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Purchases.swift; sourceTree = "<group>"; };
+		5FA491B31DD63B5A0078BE41 /* Purchase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Purchase.swift; sourceTree = "<group>"; };
 		5FA491B91DD63B850078BE41 /* PokupalshikDB.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = PokupalshikDB.db; sourceTree = "<group>"; };
 		68B41B561B184ABC4D929165 /* Pods-Pokupalshik.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pokupalshik.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pokupalshik/Pods-Pokupalshik.release.xcconfig"; sourceTree = "<group>"; };
 		8AF5C7A7C250FE13AB981FDE /* Pods-Pokupalshik.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pokupalshik.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pokupalshik/Pods-Pokupalshik.debug.xcconfig"; sourceTree = "<group>"; };
@@ -129,7 +129,7 @@
 				5FA491AF1DD63B5A0078BE41 /* DatabaseManagable.swift */,
 				5FA491B01DD63B5A0078BE41 /* DatabaseService.swift */,
 				5FA491B21DD63B5A0078BE41 /* Product.swift */,
-				5FA491B31DD63B5A0078BE41 /* Purchases.swift */,
+				5FA491B31DD63B5A0078BE41 /* Purchase.swift */,
 				5F2DF53C1DDBA19300AD667D /* Package.swift */,
 			);
 			name = Database;
@@ -300,7 +300,7 @@
 				5FA491B51DD63B5A0078BE41 /* DatabaseService.swift in Sources */,
 				5FA4919D1DD63A7E0078BE41 /* AppDelegate.swift in Sources */,
 				5F2DF5511DDCF33400AD667D /* HistoryTableViewCell.swift in Sources */,
-				5FA491B81DD63B5A0078BE41 /* Purchases.swift in Sources */,
+				5FA491B81DD63B5A0078BE41 /* Purchase.swift in Sources */,
 				5F2DF5391DDA2EE600AD667D /* ProductsCart.swift in Sources */,
 				5F2DF5311DD8B79800AD667D /* CollectionViewCell.swift in Sources */,
 				5F2DF5491DDCE1CF00AD667D /* CartViewController.swift in Sources */,

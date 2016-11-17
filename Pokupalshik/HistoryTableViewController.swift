@@ -13,15 +13,18 @@ class HistoryTableViewController: UITableViewController {
     
     var purchasesHistory = PurchasesHistory()
     var productCart = ProductsCart()
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        productCart.clearCart()
-    }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        purchasesHistory.arrOfPurchases = Purchase.service.fetchObjects()
+        productCart.clearCart()
+        tableView.reloadData()
+    }
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        purchasesHistory.arrOfPurchases = Purchases.service.fetchObjects()
+//        purchasesHistory.arrOfPurchases = Purchase.service.fetchObjects()
         /*
         print("purchasesHistory.array:\(purchasesHistory.arrOfPurchases)")
         print("Purchases.fetch:\(Purchases.service.fetchObjects())")
@@ -65,8 +68,8 @@ class HistoryTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let purchase = purchasesHistory.arrOfPurchases[indexPath.row]
         getProducts(index: purchase.id)
+        purchasesHistory.editPurchase = purchase
         openPurchase()
-        //FIXIT
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -80,12 +83,12 @@ class HistoryTableViewController: UITableViewController {
             let purchase = purchasesHistory.arrOfPurchases[indexPath.row]
             
             
-            Purchases.service.deleteObject(withId: purchase.id)
+            Purchase.service.deleteObject(withId: purchase.id)
             purchasesHistory.delete(purchase: purchase)
             Package.service.deleteObject(withId: purchase.id)
             /*
             print("purchasesHistory.array:\(purchasesHistory.arrOfPurchases)")
-            print("Purchases.fetch:\(Purchases.service.fetchObjects())")
+            print("Purchases.fetch:\(Purchase.service.fetchObjects())")
             print("Package.fetch:\(Package.service.fetchObjects())")
             */
             tableView.reloadData()
@@ -96,6 +99,8 @@ class HistoryTableViewController: UITableViewController {
         if segue.identifier == "purchaseToCart" {
             let cartVC = segue.destination as! CartViewController
             cartVC.productsCart = productCart
+            cartVC.purchasesHistory = purchasesHistory
+            
         }
     }
 

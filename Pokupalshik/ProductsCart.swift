@@ -22,10 +22,25 @@ class ProductsCart {
         return totalPrice
     }
     
+    
+    
+    func totalPriceOf(product: Product) -> Double{
+        var price = 0.0
+        
+        var product = products.filter { $0.0 == product }
+        if product.count != 0 {
+            price = product[0].0.price * Double(product[0].1)
+        }
+        
+        return price
+    }
+    
+    
     func deleteAll(product: Product) {
         productsList = productsList.filter { $0 != product }
     }
-    func deleteAt(product: Product) { //check it!
+    
+    func delete(product: Product) {
         for i in 0..<productsList.count {
             if productsList[i] == product {
                 productsList.remove(at: i)
@@ -33,6 +48,7 @@ class ProductsCart {
             }
         }
     }
+    
     func duplicate(product: Product) {
         for i in 0..<productsList.count {
             if productsList[i] == product {
@@ -41,6 +57,8 @@ class ProductsCart {
             }
         }
     }
+    
+    
     
     var products: [(Product, Int)] {
         

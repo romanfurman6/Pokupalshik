@@ -11,9 +11,11 @@ import Foundation
 
 class PurchasesHistory {
     
-    var arrOfPurchases = [Purchases]()
+    var arrOfPurchases = [Purchase]()
     
-    func delete(purchase: Purchases) {
+    var editPurchase: Purchase?
+    
+    func delete(purchase: Purchase) {
         arrOfPurchases = arrOfPurchases.filter { $0 != purchase }
     }
     

@@ -80,6 +80,7 @@ class ProductsCollectionViewController: UICollectionViewController {
         if segue.identifier == "cartSegue" {
             let cartVC = segue.destination as! CartViewController
             cartVC.productsCart = cart
+            cartVC.purchasesHistory = nil
         }
     }
     
