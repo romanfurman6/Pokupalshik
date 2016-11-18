@@ -10,7 +10,7 @@ import Foundation
 
 struct Package: DatabaseManagable {
     
-    static let service = DatabaseService<Package>()
+    static let service = PackageDataService()
     
     static var tableName = "productsPurchases"
     

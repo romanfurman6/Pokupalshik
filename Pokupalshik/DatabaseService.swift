@@ -53,26 +53,6 @@ class DatabaseService<Z: DatabaseManagable> {
         return Z.init(dict: dict)
     }
 
-    
-    func fetchObjectsBy(id: Int64) -> [Z] {
-        guard let result = try? service.prepare("SELECT * FROM \(Z.tableName) WHERE id = \(id)") else {
-            fatalError()
-        }
-        let z: [Z] = result.map { row -> [String : Any] in
-            
-            var dict = [String: Any]()
-            row
-                .enumerated()
-                .forEach { (index, item) in
-                    dict[result.columnNames[index]] = item
-            }
-            
-            return dict
-            }.flatMap { Z(dict: $0) }
-        
-        return z
-    }
-    
     func fetchObjects() -> [Z] {
         guard let result = try? service.prepare("SELECT * FROM \(Z.tableName)") else {
             fatalError()
@@ -118,10 +98,7 @@ class DatabaseService<Z: DatabaseManagable> {
         try! self.service.execute(query)
     }
     
-    func deleteTwoObject(withId: Int64, secondId: Int64) {
-        let query = "DELETE FROM \(Z.tableName) WHERE id = \(withId) AND productId = \(secondId)"
-        try! self.service.execute(query)
-    }
+
     
 }
 

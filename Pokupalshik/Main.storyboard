@@ -27,7 +27,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="ans-83-5Qg" customClass="CollectionViewCell" customModule="Pokupalshik" customModuleProvider="target">
-                                <rect key="frame" x="7" y="10" width="150" height="150"/>
+                                <rect key="frame" x="6.5" y="10" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
@@ -111,7 +111,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Qsb-Jl-d9I" id="9EC-gX-7De">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xnK-l9-fHv">
@@ -174,7 +174,7 @@
                                 <color key="backgroundColor" red="0.2776072663635355" green="0.82798006222820508" blue="0.34372466870462137" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="23"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Purchase">
+                                <state key="normal">
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
@@ -223,7 +223,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rdg-TU-Vs6" id="uQ8-B1-836">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Efc-Ad-XnA">

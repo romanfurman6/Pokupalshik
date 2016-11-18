@@ -10,7 +10,6 @@ import UIKit
 
 class HistoryTableViewController: UITableViewController {
     
-    
     var purchasesHistory = PurchasesHistory()
     var productCart = ProductsCart()
     
@@ -20,33 +19,6 @@ class HistoryTableViewController: UITableViewController {
         productCart.clearCart()
         tableView.reloadData()
     }
- 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-//        purchasesHistory.arrOfPurchases = Purchase.service.fetchObjects()
-        /*
-        print("purchasesHistory.array:\(purchasesHistory.arrOfPurchases)")
-        print("Purchases.fetch:\(Purchases.service.fetchObjects())")
-        print("Package.fetch:\(Package.service.fetchObjects())")
-        */
-    }
-    
-    
-    func getProducts(index: Int64) {
-        let productsID = Package.service.fetchObjectsBy(id: index)
-        for i in productsID {
-            for _ in 1...i.productCount {
-                productCart.add(product: Product.service.fetchObjectBy(id: i.productId)!)
-            }
-        }
-    }
-    
-    
-    func openPurchase() {
-        performSegue(withIdentifier: "purchaseToCart", sender: nil)
-    }
-
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return purchasesHistory.arrOfPurchases.count
@@ -59,8 +31,7 @@ class HistoryTableViewController: UITableViewController {
         
         cell.timeLabel.text = (purchase.time).customFormatted
         cell.cartLabel.image = UIImage(named: "Cart")
-        cell.priceLabel.text = String(purchase.price)
-        
+        cell.priceLabel.text = String(purchasesHistory.getPurchasePrice(index: purchase.id))
 
         return cell
     }
@@ -82,15 +53,10 @@ class HistoryTableViewController: UITableViewController {
         if editingStyle == .delete {
             let purchase = purchasesHistory.arrOfPurchases[indexPath.row]
             
-            
             Purchase.service.deleteObject(withId: purchase.id)
             purchasesHistory.delete(purchase: purchase)
             Package.service.deleteObject(withId: purchase.id)
-            /*
-            print("purchasesHistory.array:\(purchasesHistory.arrOfPurchases)")
-            print("Purchases.fetch:\(Purchase.service.fetchObjects())")
-            print("Package.fetch:\(Package.service.fetchObjects())")
-            */
+
             tableView.reloadData()
         }
     }
@@ -104,4 +70,20 @@ class HistoryTableViewController: UITableViewController {
         }
     }
 
+}
+
+extension HistoryTableViewController {
+    
+    func getProducts(index: Int64) {
+        let productsID = Package.service.fetchProductBy(id: index)
+        for i in productsID {
+            for _ in 1...i.productCount {
+                productCart.add(product: Product.service.fetchObjectBy(id: i.productId)!)
+            }
+        }
+    }
+    
+    func openPurchase() {
+        performSegue(withIdentifier: "purchaseToCart", sender: nil)
+    }
 }

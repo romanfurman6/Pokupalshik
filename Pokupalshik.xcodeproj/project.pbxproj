@@ -18,6 +18,7 @@
 		5F2DF5511DDCF33400AD667D /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2DF5501DDCF33400AD667D /* HistoryTableViewCell.swift */; };
 		5F2DF5531DDDF42000AD667D /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2DF5521DDDF42000AD667D /* APIManager.swift */; };
 		5F2DF5571DDE1B2C00AD667D /* PurchaseHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2DF5561DDE1B2C00AD667D /* PurchaseHistory.swift */; };
+		5F788DB81DDF0831005CCB1E /* PackageDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F788DB71DDF0831005CCB1E /* PackageDataService.swift */; };
 		5FA4919D1DD63A7E0078BE41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4919C1DD63A7E0078BE41 /* AppDelegate.swift */; };
 		5FA491A41DD63A7E0078BE41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FA491A31DD63A7E0078BE41 /* Assets.xcassets */; };
 		5FA491A71DD63A7E0078BE41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FA491A51DD63A7E0078BE41 /* LaunchScreen.storyboard */; };
@@ -43,6 +44,7 @@
 		5F2DF5501DDCF33400AD667D /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		5F2DF5521DDDF42000AD667D /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		5F2DF5561DDE1B2C00AD667D /* PurchaseHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseHistory.swift; sourceTree = "<group>"; };
+		5F788DB71DDF0831005CCB1E /* PackageDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PackageDataService.swift; sourceTree = "<group>"; };
 		5FA491991DD63A7E0078BE41 /* Pokupalshik.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokupalshik.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FA4919C1DD63A7E0078BE41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5FA491A31DD63A7E0078BE41 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				5FA491B91DD63B850078BE41 /* PokupalshikDB.db */,
 				5FA491AF1DD63B5A0078BE41 /* DatabaseManagable.swift */,
 				5FA491B01DD63B5A0078BE41 /* DatabaseService.swift */,
+				5F788DB71DDF0831005CCB1E /* PackageDataService.swift */,
 				5FA491B21DD63B5A0078BE41 /* Product.swift */,
 				5FA491B31DD63B5A0078BE41 /* Purchase.swift */,
 				5F2DF53C1DDBA19300AD667D /* Package.swift */,
@@ -298,6 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5FA491B51DD63B5A0078BE41 /* DatabaseService.swift in Sources */,
+				5F788DB81DDF0831005CCB1E /* PackageDataService.swift in Sources */,
 				5FA4919D1DD63A7E0078BE41 /* AppDelegate.swift in Sources */,
 				5F2DF5511DDCF33400AD667D /* HistoryTableViewCell.swift in Sources */,
 				5FA491B81DD63B5A0078BE41 /* Purchase.swift in Sources */,

@@ -8,5 +8,4 @@ class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var image: UIImageView!
     
-    
 }

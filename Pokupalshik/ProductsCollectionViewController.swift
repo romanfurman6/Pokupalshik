@@ -4,26 +4,13 @@ import MIBadgeButton_Swift
 
 class ProductsCollectionViewController: UICollectionViewController {
     
+    let cartBarButton: MIBadgeButton = MIBadgeButton(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
     var productList = [Product]()
-    var count = 0
     var cart = ProductsCart()
-    
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        badgeCounter()
-    }
-
-    let cartBarButton: MIBadgeButton = MIBadgeButton(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
-
-    func createCartButtonWithBadge() {
-        cartBarButton.setImage(UIImage(named: "Cart"), for: .normal)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: cartBarButton)
-        cartBarButton.addTarget(self,
-                                action: #selector(handleCartTap),
-                                for: .touchUpInside)
-
+        updateBadgeCounter()
     }
     
     override func viewDidLoad() {
@@ -60,20 +47,12 @@ class ProductsCollectionViewController: UICollectionViewController {
         
         return cell
     }
-    func badgeCounter() {
-        if cart.countOfProduct == 0 {
-            cartBarButton.badgeString = nil
-        } else {
-            cartBarButton.badgeString = "\(cart.countOfProduct)"
-        }
-        
-    }
     
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let product = productList[indexPath.row]
         cart.add(product: product)
-        badgeCounter()
+        updateBadgeCounter()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -84,8 +63,31 @@ class ProductsCollectionViewController: UICollectionViewController {
         }
     }
     
+}
+
+extension ProductsCollectionViewController {
+    
+    func createCartButtonWithBadge() {
+        cartBarButton.setImage(UIImage(named: "Cart"), for: .normal)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: cartBarButton)
+        cartBarButton.addTarget(self,
+                                action: #selector(handleCartTap),
+                                for: .touchUpInside)
+        
+    }
+    
+    func updateBadgeCounter() {
+        if cart.countOfProduct == 0 {
+            cartBarButton.badgeString = nil
+        } else {
+            cartBarButton.badgeString = "\(cart.countOfProduct)"
+        }
+        
+    }
+    
     func handleCartTap() {
         performSegue(withIdentifier: "cartSegue", sender: nil)
     }
+    
 }
 

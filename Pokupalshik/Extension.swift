@@ -41,3 +41,24 @@ extension String {
         return DateFormatter(dateFormat: dateFormat).date(from: self) as NSDate?
     }
 }
+
+extension Array where Element: Equatable {
+    func frequencyTuple() -> [(elem: Element,count: Int)] {
+        let empty: [(Element,Int)] = []
+        
+        return reduce(empty, { (tuple: [(Element,Int)], elem) in
+            var tuple = tuple
+            for index in 0..<tuple.count {
+                if tuple[index].0 == elem {
+                    tuple[index].1 += 1
+                    return tuple
+                }
+            }
+            return tuple + [(elem,1)]
+        })
+    }
+}
+
+
+
+

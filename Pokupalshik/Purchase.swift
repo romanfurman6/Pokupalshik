@@ -17,13 +17,10 @@ struct Purchase {
     
     var id: Int64 = 0
     var time: NSDate
-    var price: Double
-
     
     fileprivate struct Keys {
         static let id = "id"
         static let time = "time"
-        static let price = "price"
 
     }
 
@@ -34,8 +31,7 @@ extension Purchase: DatabaseManagable {
         
         guard
             let id = dict[Keys.id] as? Int64,
-            let time = dict[Keys.time] as? Int64,
-            let price = dict[Keys.price] as? Double
+            let time = dict[Keys.time] as? Int64
         
             else {
                 return nil
@@ -43,17 +39,15 @@ extension Purchase: DatabaseManagable {
         
         self.id = id
         self.time = NSDate(timeIntervalSinceReferenceDate: Double(time))
-        self.price = price.roundTo(places: 2)
 
     }
     
-    init(time: NSDate, price: Double) {
+    init(time: NSDate) {
         self.time = time
-        self.price = price.roundTo(places: 2)
     }
     
     var fields: [String: Any] {
-        return [Keys.time: Int(self.time.timeIntervalSinceReferenceDate), Keys.price:self.price]
+        return [Keys.time: Int(self.time.timeIntervalSinceReferenceDate)]
     }
 }
 
