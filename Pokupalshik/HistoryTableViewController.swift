@@ -30,9 +30,10 @@ class HistoryTableViewController: UITableViewController {
         let purchase = purchasesHistory.arrOfPurchases[indexPath.row]
         
         cell.timeLabel.text = (purchase.time).customFormatted
-        cell.cartLabel.image = UIImage(named: "Cart")
+        cell.cartLabel.image = UIImage(named: "CartLogo")
         cell.priceLabel.text = String(purchasesHistory.getPurchasePrice(index: purchase.id))
-
+        
+        
         return cell
     }
     

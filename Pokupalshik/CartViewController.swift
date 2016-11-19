@@ -41,7 +41,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         let product = productsCart.products[indexPath.row]
         
         cell.cartNameLabel.text = product.0.name
-        cell.cartPriceLabel.text = String(Double(Double(product.0.price) * Double(product.1)))
+        cell.cartPriceLabel.text = String(productsCart.totalPriceOf(product: product.0))
         cell.cartProductImage.image = UIImage(named: "\(product.0.name)")
         cell.countOfProduct.text = String(product.1)
         
@@ -58,9 +58,12 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        
         if editingStyle == .delete {
             
-            let product = productsCart.products[indexPath.row]
+            let products = productsCart.products
+            let product = products[indexPath.row]
             productsCart.deleteAll(product: product.0)
             
             if purchasesHistory != nil {
@@ -90,7 +93,7 @@ extension CartViewController {
     
     func createCartButton() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: cartBarButton)
-        cartBarButton.setTitle("Currency", for: .normal)
+        cartBarButton.setImage(UIImage(named: "Currency"), for: .normal)
         cartBarButton.addTarget(self, action: #selector(purchase), for: .touchUpInside)
     }
     
@@ -118,58 +121,42 @@ extension CartViewController {
         _ = Package.service.updatePurchase(package: Package(id: editPurchase.id, productId: updateProduct.0.id, productCount: Int64(updateProduct.1)), purchaseId: editPurchase.id, productId: updateProduct.0.id)
     }
     
-    func fillLabels(product: (Product,Int), indexPath: IndexPath?, cell: CartTableViewCell?
-        ) {
-        cell?.countOfProduct.text = String(productsCart.products[(indexPath?.row)!].1)
-        cell?.cartPriceLabel.text = String(productsCart.totalPriceOf(product: product.0))
-        updatePurchaseButtonLabel()
-    }
-    
+
     func minusProductCount(_ sender: AnyObject) {
-        
         let button = sender as? UIButton
         let cell = button?.superview?.superview as? CartTableViewCell
-        let indexPath = tableView.indexPath(for: cell!)
-        var product = productsCart.products[(indexPath?.row)!]
+        let index = productsCart.searchAt(name: (cell?.cartNameLabel.text)!)
+        var product = productsCart.products[index!]
         
-        if purchasesHistory != nil {
-            if Int((cell?.countOfProduct.text)!)! > 1 {
-                
-                productsCart.delete(product: product.0)
-                fillLabels(product: product, indexPath: indexPath, cell: cell)
-                product = productsCart.products[(indexPath?.row)!]
+        if product.1 > 1 {
+            
+            productsCart.delete(product: product.0)
+            cell?.countOfProduct.text = String(productsCart.getCountOf(product: product.0))
+            cell?.cartPriceLabel.text = String(productsCart.totalPriceOf(product: product.0))
+            updatePurchaseButtonLabel()
+            
+            if purchasesHistory != nil {
+                product = productsCart.products[index!]
                 updatePurchase(product: product)
             }
             
-        } else {
-            
-            if Int((cell?.countOfProduct.text)!)! > 1 {
-                
-                productsCart.delete(product: product.0)
-                fillLabels(product: product, indexPath: indexPath, cell: cell)
-            }
         }
     }
     
     func plusProductCount(_ sender: AnyObject) {
         let button = sender as? UIButton
         let cell = button?.superview?.superview as? CartTableViewCell
-        let indexPath = tableView.indexPath(for: cell!)
-        var product = productsCart.products[(indexPath?.row)!]
+        let index = productsCart.searchAt(name: (cell?.cartNameLabel.text)!)
+        var product = productsCart.products[index!]
+        
+        productsCart.duplicate(product: product.0)
+        cell?.countOfProduct.text = String(productsCart.getCountOf(product: product.0))
+        cell?.cartPriceLabel.text = String(productsCart.totalPriceOf(product: product.0))
+        updatePurchaseButtonLabel()
         
         if purchasesHistory != nil {
-            
-            productsCart.duplicate(product: product.0)
-            fillLabels(product: product, indexPath: indexPath, cell: cell)
-            
-            product = productsCart.products[(indexPath?.row)!]
+            product = productsCart.products[index!]
             updatePurchase(product: product)
-            
-        } else {
-            
-            productsCart.duplicate(product: product.0)
-            fillLabels(product: product, indexPath: indexPath, cell: cell)
-            
         }
     }
 }

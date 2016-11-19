@@ -15,7 +15,7 @@ class PurchasesHistory {
     
     var editPurchase: Purchase?
     
-    func getPurchasePrice(index: Int64) -> Double{
+    func getPurchasePrice(index: Int64) -> Double {
         var price: Double = 0.0
         let productIdArr = Package.service.fetchProductBy(id: index)
         for i in productIdArr {

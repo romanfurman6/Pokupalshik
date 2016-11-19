@@ -30,9 +30,16 @@ class ProductsCart {
         }
         return price
     }
+    func searchAt(name: String) -> Int? {
+        return products.index(where: { $0.0.name == name })
+    }
     
     func deleteAll(product: Product) {
         productsList = productsList.filter { $0 != product }
+    }
+    
+    func getCountOf(product: Product) -> Int {
+        return products.filter({ $0.0 == product })[0].1
     }
     
     func delete(product: Product) {
