@@ -30,10 +30,6 @@ class ProductsCart {
         }
         return price
     }
-    func searchAt(name: String) -> Int? {
-        let index = products.index(where: { $0.0.name == name })
-        return index
-    }
     
     func deleteAll(product: Product) {
         productsList = productsList.filter { $0 != product }
@@ -44,10 +40,12 @@ class ProductsCart {
     }
     
     func delete(product: Product) {
-        guard let indexOfProduct = productsList.index(of: product) else {
+        var reverceArr = Array(productsList.reversed())
+        guard let indexOfProduct = reverceArr.index(of: product) else {
             return
         }
-        productsList.remove(at: indexOfProduct)
+        reverceArr.remove(at: indexOfProduct)
+        productsList = Array(reverceArr.reversed())
     }
     
     func duplicate(product: Product) {
