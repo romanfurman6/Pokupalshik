@@ -57,20 +57,25 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         return true
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
+        let cell = self.tableView.cellForRow(at: indexPath) as! CartTableViewCell?
+
         
         if editingStyle == .delete {
             
-            let products = productsCart.products
-            let product = products[indexPath.row]
+            let index = productsCart.searchAt(name: (cell?.cartNameLabel.text)!)
+            let product = productsCart.products[index!]
             productsCart.deleteAll(product: product.0)
-            
+
             if purchasesHistory != nil {
                 
                 let editPurchase = (purchasesHistory?.editPurchase)!
                 _ = Package.service.deleteProduct(purchaseId: editPurchase.id, productId: product.0.id)
-                updatePurchaseButtonLabel()
                 
                 if !checkProductInPackage() {
                     _ = Purchase.service.deleteObject(withId: editPurchase.id)

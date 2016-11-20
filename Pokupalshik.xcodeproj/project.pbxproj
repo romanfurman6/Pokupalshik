@@ -211,6 +211,7 @@
 				TargetAttributes = {
 					5FA491981DD63A7E0078BE41 = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 29286X6DM7;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -433,7 +434,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 29286X6DM7;
 				INFOPLIST_FILE = Pokupalshik/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dmitrievichR.Pokupalshik;
@@ -448,7 +449,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 29286X6DM7;
 				INFOPLIST_FILE = Pokupalshik/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dmitrievichR.Pokupalshik;
