@@ -11,13 +11,13 @@ import Foundation
 
 class PurchasesHistory {
     
-    var arrOfPurchases = [Purchase]()
+    var purchases = [Purchase]()
     
     var editPurchase: Purchase?
     
-    func getPurchasePrice(index: Int64) -> Double {
+    func getPrice(of pruchase: Purchase) -> Double {
         var price: Double = 0.0
-        let productIdArr = Package.service.fetchProductBy(id: index)
+        let productIdArr = Package.service.fetchProducts(by: pruchase)
         for i in productIdArr {
             let product = Product.service.fetchObjectBy(id: i.productId)
             price += (product?.price)! * Double(i.productCount)
@@ -26,7 +26,7 @@ class PurchasesHistory {
     }
     
     func delete(purchase: Purchase) {
-        arrOfPurchases = arrOfPurchases.filter { $0 != purchase }
+        purchases = purchases.filter { $0 != purchase }
     }
     
 }

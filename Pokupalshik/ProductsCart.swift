@@ -2,9 +2,17 @@
 
 import Foundation
 
+/*
+ 
+ */
+
 class ProductsCart {
     
-    private var productsList: [Product] = []
+    private var productsList: [Product] = [] {
+        didSet {
+            productsList = quickSort(arr: productsList)
+        }
+    }
     
     func clearCart() {
         productsList.removeAll()
@@ -38,14 +46,13 @@ class ProductsCart {
     func getCountOf(product: Product) -> Int {
         return products.filter({ $0.0 == product })[0].1
     }
-    
+
     func delete(product: Product) {
-        var reverceArr = Array(productsList.reversed())
-        guard let indexOfProduct = reverceArr.index(of: product) else {
+        guard let indexOfProduct = productsList.index(of: product) else {
             return
         }
-        reverceArr.remove(at: indexOfProduct)
-        productsList = Array(reverceArr.reversed())
+        productsList.remove(at: indexOfProduct)
+
     }
     
     func duplicate(product: Product) {
@@ -53,9 +60,35 @@ class ProductsCart {
             return
         }
         productsList.append(productsList[indexOfProduct])
+
     }
     
     var products: [(Product, Int)] {
         return productsList.frequencyTuple()
+    }
+}
+
+extension ProductsCart {
+    func quickSort(arr: [Product]) -> [Product] {
+        if arr.count > 1 {
+            
+            var less: [Product] = []
+            var equal: [Product] = []
+            var greater: [Product] = []
+            
+            let pivot = arr[0]
+            for i in arr {
+                if i.id < pivot.id {
+                    less.append(i)
+                } else if i.id == pivot.id {
+                    equal.append(i)
+                } else {
+                    greater.append(i)
+                }
+            }
+            return quickSort(arr: less) + equal + quickSort(arr: greater)
+        } else {
+            return arr
+        }
     }
 }

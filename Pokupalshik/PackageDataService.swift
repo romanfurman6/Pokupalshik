@@ -14,9 +14,8 @@ class PackageDataService: DatabaseService<Package> {
         let query = "DELETE FROM productsPurchases WHERE id = \(purchaseId) AND productId = \(productId)"
         try! self.service.execute(query)
     }
-    
-    func fetchProductBy(id: Int64) -> [Package] {
-        guard let result = try? service.prepare("SELECT * FROM productsPurchases WHERE id = \(id)") else {
+    func fetchProducts(by purchase: Purchase) -> [Package] {
+        guard let result = try? service.prepare("SELECT * FROM productsPurchases WHERE id = \(purchase.id)") else {
             fatalError()
         }
         let z: [Package] = result.map { row -> [String : Any] in

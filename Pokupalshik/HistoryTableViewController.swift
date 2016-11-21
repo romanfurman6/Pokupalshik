@@ -15,31 +15,31 @@ class HistoryTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        purchasesHistory.arrOfPurchases = Purchase.service.fetchObjects()
+        purchasesHistory.purchases = Purchase.service.fetchObjects()
         productCart.clearCart()
         tableView.reloadData()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return purchasesHistory.arrOfPurchases.count
+        return purchasesHistory.purchases.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell", for: indexPath) as! HistoryTableViewCell
         
-        let purchase = purchasesHistory.arrOfPurchases[indexPath.row]
+        let purchase = purchasesHistory.purchases[indexPath.row]
         
-        cell.timeLabel.text = (purchase.time).customFormatted
+        cell.timeLabel.text = purchase.time.customFormatted
         cell.cartLabel.image = UIImage(named: "CartLogo")
-        cell.priceLabel.text = String(purchasesHistory.getPurchasePrice(index: purchase.id))
+        cell.priceLabel.text = String(purchasesHistory.getPrice(of: purchase))
         
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let purchase = purchasesHistory.arrOfPurchases[indexPath.row]
-        getProducts(index: purchase.id)
+        let purchase = purchasesHistory.purchases[indexPath.row]
+        getProducts(purchase: purchase)
         purchasesHistory.editPurchase = purchase
         openPurchase()
     }
@@ -52,7 +52,7 @@ class HistoryTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let purchase = purchasesHistory.arrOfPurchases[indexPath.row]
+            let purchase = purchasesHistory.purchases[indexPath.row]
             
             Purchase.service.deleteObject(withId: purchase.id)
             purchasesHistory.delete(purchase: purchase)
@@ -75,8 +75,8 @@ class HistoryTableViewController: UITableViewController {
 
 extension HistoryTableViewController {
     
-    func getProducts(index: Int64) {
-        let productsID = Package.service.fetchProductBy(id: index)
+    func getProducts(purchase: Purchase) {
+        let productsID = Package.service.fetchProducts(by: purchase)
         for i in productsID {
             for _ in 1...i.productCount {
                 productCart.add(product: Product.service.fetchObjectBy(id: i.productId)!)
