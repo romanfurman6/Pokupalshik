@@ -1,14 +1,27 @@
 PODS:
+  - MIBadgeButton-Swift (0.5)
   - SQLite.swift (0.11.0):
     - SQLite.swift/standard (= 0.11.0)
   - SQLite.swift/standard (0.11.0)
 
 DEPENDENCIES:
+  - MIBadgeButton-Swift (from `https://github.com/mustafaibrahim989/MIBadgeButton-Swift.git`, branch `master`)
   - SQLite.swift (~> 0.11)
 
+EXTERNAL SOURCES:
+  MIBadgeButton-Swift:
+    :branch: master
+    :git: https://github.com/mustafaibrahim989/MIBadgeButton-Swift.git
+
+CHECKOUT OPTIONS:
+  MIBadgeButton-Swift:
+    :commit: 44b28fd7c9071439861f9b0c366c84a55ffd7e53
+    :git: https://github.com/mustafaibrahim989/MIBadgeButton-Swift.git
+
 SPEC CHECKSUMS:
+  MIBadgeButton-Swift: 9e57309b00b168d75ca8fecb45bc75124a8ffddf
   SQLite.swift: 9a26273607d3077a2e5a8d33486e9989f8404c7d
 
-PODFILE CHECKSUM: 7b4548a18b223bc20efa0676cae9b912a327107f
+PODFILE CHECKSUM: 433e9d6033b58fae5df722bcc4b849201b65fd4a
 
-COCOAPODS: 1.1.0.rc.2
+COCOAPODS: 1.0.1

@@ -43,11 +43,6 @@ class DatabaseService<Z: DatabaseManagable> {
         let query = "UPDATE \(Z.tableName) SET \(updateQuery) WHERE id = \(object.id)"
         try! service.execute(query)
     }
-    
-    func update(id: Int64, field: String, newValue: Any) {
-        let query = "UPDATE \(Z.tableName) SET \(field) = \'\(newValue)\' WHERE id = \(id)"
-        try! self.service.execute(query)
-    }
 
     func fetchObjectBy(id: Int64) -> Z? {
         let result = try! service.prepare("SELECT * FROM \(Z.tableName) WHERE id = \(id)")
@@ -62,21 +57,19 @@ class DatabaseService<Z: DatabaseManagable> {
         guard let result = try? service.prepare("SELECT * FROM \(Z.tableName)") else {
             fatalError()
         }
-        
-        return result.map { row -> [String : Any] in
+        let z: [Z] = result.map { row -> [String : Any] in
             
             var dict = [String: Any]()
-
-                row
-                    
-                    .enumerated()
-                    .forEach { (index, item) in
-                        dict[result.columnNames[index]] = item
-                    }
-
+            row
+                .enumerated()
+                .forEach { (index, item) in
+                    dict[result.columnNames[index]] = item
+            }
             
-                return dict
+            return dict
             }.flatMap { Z(dict: $0) }
+        
+        return z
     }
     
     func insert(object: Z) -> Int64 {
@@ -101,8 +94,11 @@ class DatabaseService<Z: DatabaseManagable> {
     }
     
     func deleteObject(withId: Int64) {
-        let query = "DELETE FROM \(Z.tableName) WHERE ID = \(withId)"
+        let query = "DELETE FROM \(Z.tableName) WHERE id = \(withId)"
         try! self.service.execute(query)
     }
+    
+
+    
 }
 

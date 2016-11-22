@@ -12,7 +12,7 @@ protocol DatabaseManagable {
     
     static var tableName: String { get }
     init?(dict: [String:Any])
-    var id: Int64 { get }
+    var id: Int64 { get set }
     var fields: [String: Any] { get }
     
 }
