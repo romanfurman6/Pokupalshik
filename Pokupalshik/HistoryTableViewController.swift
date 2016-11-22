@@ -31,7 +31,8 @@ class HistoryTableViewController: UITableViewController {
         
         cell.timeLabel.text = purchase.time.customFormatted
         cell.cartLabel.image = UIImage(named: "CartLogo")
-        cell.priceLabel.text = String(purchasesHistory.getPrice(of: purchase))
+        cell.priceLabel.text = String(purchasesHistory.getPrice(of: purchase).roundTo(places: 2))
+        cell.currencyNameLabel.text = CurrencyStorage.shared.currentCurrency.name
         
         
         return cell

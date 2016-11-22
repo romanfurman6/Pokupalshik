@@ -14,32 +14,29 @@ class CartViewController: UIViewController {
     @IBOutlet weak var purchaseButton: UIButton!
     var purchasesHistory: PurchasesHistory?
     var productsCart: ProductsCart!
-    let cartBarButton: UIButton = UIButton(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
+    let currencyBarButton: UIButton = UIButton(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        updatePurchaseButtonLabel()
+    
+    func checkCurrentCurrency() {
+        let currentCurrencyName = "currentCurrencyName"
+        let currentCurrencyCoef = "currentCurrencyCoef"
         
-        if purchasesHistory != nil {
-            purchaseButton.isEnabled = false
+        let defaults = UserDefaults.standard
+        if
+            let _ = defaults.string(forKey: currentCurrencyName),
+            let _ = defaults.string(forKey: currentCurrencyCoef) {
+            
+            CurrencyStorage.shared.currentCurrency = Currency(name: defaults.string(forKey: currentCurrencyName)!, coef: defaults.double(forKey: currentCurrencyCoef))
+        } else {
+            CurrencyStorage.shared.currentCurrency = Currency(name: "USD", coef: 1.0)
         }
-        
-        purchaseButton.addTarget(self, action: #selector(purchase),for: .touchUpInside)
-        
-        tableView.backgroundColor = UIColor(red: 235.0/255.0, green: 235.0/255.0, blue: 235.0/255.0, alpha: 1)
-        
-        createCartButton()
     }
     
     func updatePurchaseButtonLabel() {
-        purchaseButton.setTitle("Purchase" + " (\(productsCart.totalProductsPrice))", for: .normal)
+        purchaseButton.setTitle("Purchase" + " (\(productsCart.totalProductsPrice.roundTo(places: 2)))", for: .normal)
     }
     
-    func createCartButton() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: cartBarButton)
-        cartBarButton.setImage(UIImage(named: "Currency"), for: .normal)
-        cartBarButton.addTarget(self, action: #selector(purchase), for: .touchUpInside)
-    }
+    
     
     func purchase() {
         
@@ -78,7 +75,7 @@ class CartViewController: UIViewController {
             
             productsCart.delete(product: product.0)
             cell?.countOfProduct.text = String(productsCart.getCountOf(product: product.0))
-            cell?.cartPriceLabel.text = String(productsCart.totalPriceOf(product: product.0))
+            cell?.cartPriceLabel.text = String((productsCart.totalPriceOf(product: product.0)).roundTo(places: 2))
             updatePurchaseButtonLabel()
             
             if purchasesHistory != nil {
@@ -97,13 +94,23 @@ class CartViewController: UIViewController {
         
         productsCart.duplicate(product: product.0)
         cell?.countOfProduct.text = String(productsCart.getCountOf(product: product.0))
-        cell?.cartPriceLabel.text = String(productsCart.totalPriceOf(product: product.0))
+        cell?.cartPriceLabel.text = String((productsCart.totalPriceOf(product: product.0)).roundTo(places: 2))
         updatePurchaseButtonLabel()
         
         if purchasesHistory != nil {
             product = productsCart.products[(indexPath?.row)!]
             updatePurchase(product: product)
         }
+    }
+    
+    func createCurrencyButton() {
+        currencyBarButton.setImage(UIImage(named: "Currency"), for: .normal)
+        currencyBarButton.addTarget(self, action: #selector(chooseCurrency), for: .touchUpInside)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: currencyBarButton)
+    }
+    
+    func chooseCurrency() {
+        performSegue(withIdentifier: "chooseCurrency", sender: nil)
     }
 }
 
@@ -118,9 +125,12 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource  {
         let product = productsCart.products[indexPath.row]
         
         cell.cartNameLabel.text = product.0.name
-        cell.cartPriceLabel.text = String(productsCart.totalPriceOf(product: product.0))
         cell.cartProductImage.image = UIImage(named: "\(product.0.name)")
         cell.countOfProduct.text = String(product.1)
+        
+        
+        cell.currencyNameLabel.text = CurrencyStorage.shared.currentCurrency.name
+        cell.cartPriceLabel.text = String(productsCart.totalPriceOf(product: product.0).roundTo(places: 2))
         
         cell.minusButton.addTarget(self, action: #selector(minusProductCount(_:)), for: .touchUpInside)
         
@@ -129,6 +139,26 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource  {
         return cell
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+        updatePurchaseButtonLabel()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        updatePurchaseButtonLabel()
+        
+        if purchasesHistory != nil {
+            purchaseButton.isEnabled = false
+        }
+        
+        purchaseButton.addTarget(self, action: #selector(purchase), for: .touchUpInside)
+        
+        tableView.backgroundColor = UIColor(red: 235.0/255.0, green: 235.0/255.0, blue: 235.0/255.0, alpha: 1)
+        
+        createCurrencyButton()
+    }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
@@ -139,8 +169,6 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource  {
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        
-        
         
         if editingStyle == .delete {
             
@@ -163,5 +191,4 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource  {
             tableView.reloadData()
         }
     }
-    
 }

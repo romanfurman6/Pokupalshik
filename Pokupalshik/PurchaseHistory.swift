@@ -20,7 +20,7 @@ class PurchasesHistory {
         let productIdArr = Package.service.fetchProducts(by: pruchase)
         for i in productIdArr {
             let product = Product.service.fetchObjectBy(id: i.productId)
-            price += (product?.price)! * Double(i.productCount)
+            price += ((product?.price)! * Double(i.productCount)) * CurrencyStorage.shared.currentCurrency.coef
         }
         return price
     }

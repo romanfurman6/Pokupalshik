@@ -1,10 +1,12 @@
 PODS:
+  - Alamofire (4.0.1)
   - MIBadgeButton-Swift (0.5)
   - SQLite.swift (0.11.0):
     - SQLite.swift/standard (= 0.11.0)
   - SQLite.swift/standard (0.11.0)
 
 DEPENDENCIES:
+  - Alamofire (~> 4.0)
   - MIBadgeButton-Swift (from `https://github.com/mustafaibrahim989/MIBadgeButton-Swift.git`, branch `master`)
   - SQLite.swift (~> 0.11)
 
@@ -19,9 +21,10 @@ CHECKOUT OPTIONS:
     :git: https://github.com/mustafaibrahim989/MIBadgeButton-Swift.git
 
 SPEC CHECKSUMS:
+  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
   MIBadgeButton-Swift: 9e57309b00b168d75ca8fecb45bc75124a8ffddf
   SQLite.swift: 9a26273607d3077a2e5a8d33486e9989f8404c7d
 
-PODFILE CHECKSUM: 433e9d6033b58fae5df722bcc4b849201b65fd4a
+PODFILE CHECKSUM: c250285ecf98887ab95f6fffe945baa8d4018e78
 
 COCOAPODS: 1.0.1
