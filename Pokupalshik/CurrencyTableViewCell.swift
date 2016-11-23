@@ -9,7 +9,7 @@
 import UIKit
 
 class CurrencyTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var currecyNameLabel: UILabel!
-
+    
 }

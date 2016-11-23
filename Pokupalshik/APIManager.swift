@@ -9,20 +9,42 @@
 import Foundation
 import Alamofire
 
+typealias JSON = [String: Any]
+
+enum NetworkError: Error {
+    case invalidJSON
+}
+
 class APIManager {
     
-    static let sharedAPI = APIManager()
+    static let shared = APIManager()
     
-    func getCurrency(completionHandler: @escaping ([String:Double]?, NSError?) -> ()) {
+    func getCurrencies(completionHandler: @escaping ([Currency]?, Error?) -> Void) {
         Alamofire.request("http://api.fixer.io/latest?base=USD",encoding: JSONEncoding.default)
             .responseJSON { response in
-                switch response.result {
-                case .success(let value):
-                    let dict = value as? [String:AnyObject]
-                    let rates = dict?["rates"] as! [String: Double]
-                    completionHandler(rates, nil)
-                case .failure(let error):
-                    completionHandler(nil, error as NSError?)
+                
+                DispatchQueue.main.async {
+                    switch response.result {
+                    case .success(let json):
+                        guard
+                            let json = json as? JSON,
+                            let dict = json["rates"] as? JSON
+                            else {
+                                completionHandler(nil, NetworkError.invalidJSON)
+                                return
+                        }
+                        
+                        let currencies = dict.map { (key, value) -> JSON in
+                            return [key:value]
+                            }
+                            .flatMap {
+                                Currency(from: $0)
+                        }
+                        
+                        completionHandler(currencies, nil)
+                    case .failure(let error):
+                        completionHandler(nil, error)
+                    }
                 }
         }
     }

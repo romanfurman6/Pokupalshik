@@ -32,6 +32,8 @@
 		5FA491B71DD63B5A0078BE41 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA491B21DD63B5A0078BE41 /* Product.swift */; };
 		5FA491B81DD63B5A0078BE41 /* Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA491B31DD63B5A0078BE41 /* Purchase.swift */; };
 		5FA491BA1DD63BFA0078BE41 /* PokupalshikDB.db in Resources */ = {isa = PBXBuildFile; fileRef = 5FA491B91DD63B850078BE41 /* PokupalshikDB.db */; };
+		5FF665771DE5AA0E00DA71E8 /* Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF665761DE5AA0E00DA71E8 /* Decodable.swift */; };
+		5FF665791DE5BB6D00DA71E8 /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF665781DE5BB6D00DA71E8 /* Encodable.swift */; };
 		E02465B6CD8C4DE87727EEB2 /* Pods_Pokupalshik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F17656464689386910180B9 /* Pods_Pokupalshik.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +66,8 @@
 		5FA491B21DD63B5A0078BE41 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		5FA491B31DD63B5A0078BE41 /* Purchase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Purchase.swift; sourceTree = "<group>"; };
 		5FA491B91DD63B850078BE41 /* PokupalshikDB.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = PokupalshikDB.db; sourceTree = "<group>"; };
+		5FF665761DE5AA0E00DA71E8 /* Decodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Decodable.swift; sourceTree = "<group>"; };
+		5FF665781DE5BB6D00DA71E8 /* Encodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
 		68B41B561B184ABC4D929165 /* Pods-Pokupalshik.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pokupalshik.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pokupalshik/Pods-Pokupalshik.release.xcconfig"; sourceTree = "<group>"; };
 		8AF5C7A7C250FE13AB981FDE /* Pods-Pokupalshik.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pokupalshik.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pokupalshik/Pods-Pokupalshik.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,6 +111,8 @@
 				5F6B504E1DE44820005052E3 /* CurrencyStorage.swift */,
 				5F6B504F1DE44820005052E3 /* CurrencyTableViewCell.swift */,
 				5F6B50501DE44820005052E3 /* CurrencyTableViewController.swift */,
+				5FF665761DE5AA0E00DA71E8 /* Decodable.swift */,
+				5FF665781DE5BB6D00DA71E8 /* Encodable.swift */,
 				5F6B504C1DE4480F005052E3 /* API */,
 			);
 			name = Currency;
@@ -329,6 +335,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FF665791DE5BB6D00DA71E8 /* Encodable.swift in Sources */,
 				5F6B50511DE44820005052E3 /* Currency.swift in Sources */,
 				5FA491B51DD63B5A0078BE41 /* DatabaseService.swift in Sources */,
 				5F788DB81DDF0831005CCB1E /* PackageDataService.swift in Sources */,
@@ -336,6 +343,7 @@
 				5FA4919D1DD63A7E0078BE41 /* AppDelegate.swift in Sources */,
 				5F2DF5511DDCF33400AD667D /* HistoryTableViewCell.swift in Sources */,
 				5F6B50581DE44A0B005052E3 /* APIManager.swift in Sources */,
+				5FF665771DE5AA0E00DA71E8 /* Decodable.swift in Sources */,
 				5FA491B81DD63B5A0078BE41 /* Purchase.swift in Sources */,
 				5F2DF5391DDA2EE600AD667D /* ProductsCart.swift in Sources */,
 				5F2DF5311DD8B79800AD667D /* ProductCollectionViewCell.swift in Sources */,

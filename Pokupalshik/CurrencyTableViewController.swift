@@ -12,9 +12,7 @@ class CurrencyTableViewController: UITableViewController {
     
     var storage: [Currency] = [] {
         didSet {
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
+            self.tableView.reloadData()
         }
     }
     
@@ -24,11 +22,11 @@ class CurrencyTableViewController: UITableViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    func getCurrency() {
-        return APIManager.sharedAPI.getCurrency {
-            (dictionary:[String: Double]?, error:NSError?) in
-            for currency in dictionary! {
-                self.storage.append(Currency(name: currency.key, coef: currency.value))
+    func getCurrencies() {
+        return APIManager.shared.getCurrencies {
+            (currency:[Currency]?, error: Error?) in
+            for dict in currency! {
+                self.storage.append(dict)
             }
             self.storage.insert(Currency(name: "USD", coef: 1), at: 0)
         }
@@ -36,7 +34,7 @@ class CurrencyTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getCurrency()
+        getCurrencies()
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -52,13 +50,11 @@ class CurrencyTableViewController: UITableViewController {
         
         cell.currecyNameLabel.text = storage[indexPath.row].name
         
-        if let currentCurrency = CurrencyStorage.shared.currentCurrency {
-            if currentCurrency.name == cell.currecyNameLabel.text {
-                cell.accessoryType = .checkmark
-                tableView.selectRow(at: indexPath, animated: false, scrollPosition: UITableViewScrollPosition.bottom)
-            } else {
-                cell.accessoryType = .none
-            }
+        if CurrencyStorage.shared.currentCurrency.name == cell.currecyNameLabel.text {
+            cell.accessoryType = .checkmark
+            tableView.selectRow(at: indexPath, animated: false, scrollPosition: UITableViewScrollPosition.bottom)
+        } else {
+            cell.accessoryType = .none
         }
         
         return cell
@@ -73,12 +69,9 @@ class CurrencyTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) {
             cell.accessoryType = .checkmark
-            
         }
         let currency = storage[indexPath.row]
         CurrencyStorage.shared.currentCurrency = currency
-        defaults.set(currency.coef, forKey: "currentCurrencyCoef")
-        defaults.set(currency.name, forKey: "currentCurrencyName")
     }
     
     
