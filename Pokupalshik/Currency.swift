@@ -31,6 +31,12 @@ class Currency: Decodable {
 
 extension Currency: Encodable {
     var jsonValue: JSON {
-        return [name:coef]
+        return [name:coef as Double]
     }
 }
+
+extension Currency: Equatable { }
+func ==(lhs: Currency, rhs: Currency) -> Bool {
+    return lhs.name == rhs.name && lhs.coef == rhs.coef
+}
+

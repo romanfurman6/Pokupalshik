@@ -1,5 +1,5 @@
 //
-//  Decodable.swift
+//  Types.swift
 //  Pokupalshik
 //
 //  Created by Roman Dmitrieivich on 11/23/16.
@@ -8,6 +8,5 @@
 
 import Foundation
 
-protocol Decodable {
-    init?(from json: JSON)
-}
+typealias JSON = [String: Any]
+

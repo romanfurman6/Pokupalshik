@@ -22,7 +22,14 @@
 		5F6B50531DE44820005052E3 /* CurrencyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6B504F1DE44820005052E3 /* CurrencyTableViewCell.swift */; };
 		5F6B50541DE44820005052E3 /* CurrencyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6B50501DE44820005052E3 /* CurrencyTableViewController.swift */; };
 		5F6B50581DE44A0B005052E3 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6B50571DE44A0B005052E3 /* APIManager.swift */; };
-		5F788DB81DDF0831005CCB1E /* PackageDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F788DB71DDF0831005CCB1E /* PackageDataService.swift */; };
+		5F788DB81DDF0831005CCB1E /* PackageDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F788DB71DDF0831005CCB1E /* PackageDatabaseService.swift */; };
+		5F9C94081DE5F1B900C05665 /* CurrencyStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9C94071DE5F1B900C05665 /* CurrencyStorageTests.swift */; };
+		5F9C94121DE5F41200C05665 /* CurrencyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9C94111DE5F41200C05665 /* CurrencyTest.swift */; };
+		5F9C94141DE5F83F00C05665 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9C94131DE5F83F00C05665 /* NetworkError.swift */; };
+		5F9C94161DE5F86000C05665 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9C94151DE5F86000C05665 /* Types.swift */; };
+		5F9C941B1DE603C200C05665 /* PurchaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9C941A1DE603C200C05665 /* PurchaseTests.swift */; };
+		5F9C941D1DE60AD300C05665 /* DatabaseServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9C941C1DE60AD300C05665 /* DatabaseServiceTests.swift */; };
+		5F9C94211DE6189000C05665 /* ProductTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9C94201DE6189000C05665 /* ProductTests.swift */; };
 		5FA4919D1DD63A7E0078BE41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4919C1DD63A7E0078BE41 /* AppDelegate.swift */; };
 		5FA491A41DD63A7E0078BE41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FA491A31DD63A7E0078BE41 /* Assets.xcassets */; };
 		5FA491A71DD63A7E0078BE41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FA491A51DD63A7E0078BE41 /* LaunchScreen.storyboard */; };
@@ -36,6 +43,16 @@
 		5FF665791DE5BB6D00DA71E8 /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF665781DE5BB6D00DA71E8 /* Encodable.swift */; };
 		E02465B6CD8C4DE87727EEB2 /* Pods_Pokupalshik.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F17656464689386910180B9 /* Pods_Pokupalshik.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5F9C940A1DE5F1B900C05665 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5FA491911DD63A7E0078BE41 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5FA491981DD63A7E0078BE41;
+			remoteInfo = Pokupalshik;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1F17656464689386910180B9 /* Pods_Pokupalshik.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pokupalshik.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,7 +71,16 @@
 		5F6B504F1DE44820005052E3 /* CurrencyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyTableViewCell.swift; sourceTree = "<group>"; };
 		5F6B50501DE44820005052E3 /* CurrencyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyTableViewController.swift; sourceTree = "<group>"; };
 		5F6B50571DE44A0B005052E3 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
-		5F788DB71DDF0831005CCB1E /* PackageDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PackageDataService.swift; sourceTree = "<group>"; };
+		5F788DB71DDF0831005CCB1E /* PackageDatabaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PackageDatabaseService.swift; sourceTree = "<group>"; };
+		5F9C94051DE5F1B900C05665 /* PokupalshikTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokupalshikTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F9C94071DE5F1B900C05665 /* CurrencyStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyStorageTests.swift; sourceTree = "<group>"; };
+		5F9C94091DE5F1B900C05665 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5F9C94111DE5F41200C05665 /* CurrencyTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyTest.swift; sourceTree = "<group>"; };
+		5F9C94131DE5F83F00C05665 /* NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		5F9C94151DE5F86000C05665 /* Types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
+		5F9C941A1DE603C200C05665 /* PurchaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseTests.swift; sourceTree = "<group>"; };
+		5F9C941C1DE60AD300C05665 /* DatabaseServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseServiceTests.swift; sourceTree = "<group>"; };
+		5F9C94201DE6189000C05665 /* ProductTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductTests.swift; sourceTree = "<group>"; };
 		5FA491991DD63A7E0078BE41 /* Pokupalshik.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokupalshik.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FA4919C1DD63A7E0078BE41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5FA491A31DD63A7E0078BE41 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -73,6 +99,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5F9C94021DE5F1B900C05665 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5FA491961DD63A7E0078BE41 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -122,14 +155,30 @@
 			isa = PBXGroup;
 			children = (
 				5F6B50571DE44A0B005052E3 /* APIManager.swift */,
+				5F9C94151DE5F86000C05665 /* Types.swift */,
+				5F9C94131DE5F83F00C05665 /* NetworkError.swift */,
 			);
 			name = API;
+			sourceTree = "<group>";
+		};
+		5F9C94061DE5F1B900C05665 /* PokupalshikTests */ = {
+			isa = PBXGroup;
+			children = (
+				5F9C94111DE5F41200C05665 /* CurrencyTest.swift */,
+				5F9C94071DE5F1B900C05665 /* CurrencyStorageTests.swift */,
+				5F9C941C1DE60AD300C05665 /* DatabaseServiceTests.swift */,
+				5F9C941A1DE603C200C05665 /* PurchaseTests.swift */,
+				5F9C94201DE6189000C05665 /* ProductTests.swift */,
+				5F9C94091DE5F1B900C05665 /* Info.plist */,
+			);
+			path = PokupalshikTests;
 			sourceTree = "<group>";
 		};
 		5FA491901DD63A7E0078BE41 = {
 			isa = PBXGroup;
 			children = (
 				5FA4919B1DD63A7E0078BE41 /* Pokupalshik */,
+				5F9C94061DE5F1B900C05665 /* PokupalshikTests */,
 				5FA4919A1DD63A7E0078BE41 /* Products */,
 				D5EF2B97A7762928F0DACF0F /* Pods */,
 				778216E6834EBF1415F9449C /* Frameworks */,
@@ -140,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				5FA491991DD63A7E0078BE41 /* Pokupalshik.app */,
+				5F9C94051DE5F1B900C05665 /* PokupalshikTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -165,7 +215,7 @@
 				5FA491B91DD63B850078BE41 /* PokupalshikDB.db */,
 				5FA491AF1DD63B5A0078BE41 /* DatabaseManagable.swift */,
 				5FA491B01DD63B5A0078BE41 /* DatabaseService.swift */,
-				5F788DB71DDF0831005CCB1E /* PackageDataService.swift */,
+				5F788DB71DDF0831005CCB1E /* PackageDatabaseService.swift */,
 				5FA491B21DD63B5A0078BE41 /* Product.swift */,
 				5FA491B31DD63B5A0078BE41 /* Purchase.swift */,
 				5F2DF53C1DDBA19300AD667D /* Package.swift */,
@@ -213,6 +263,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		5F9C94041DE5F1B900C05665 /* PokupalshikTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5F9C940C1DE5F1B900C05665 /* Build configuration list for PBXNativeTarget "PokupalshikTests" */;
+			buildPhases = (
+				5F9C94011DE5F1B900C05665 /* Sources */,
+				5F9C94021DE5F1B900C05665 /* Frameworks */,
+				5F9C94031DE5F1B900C05665 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5F9C940B1DE5F1B900C05665 /* PBXTargetDependency */,
+			);
+			name = PokupalshikTests;
+			productName = PokupalshikTests;
+			productReference = 5F9C94051DE5F1B900C05665 /* PokupalshikTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		5FA491981DD63A7E0078BE41 /* Pokupalshik */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5FA491AB1DD63A7E0078BE41 /* Build configuration list for PBXNativeTarget "Pokupalshik" */;
@@ -243,9 +311,16 @@
 				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Roman Dmitrieivich";
 				TargetAttributes = {
+					5F9C94041DE5F1B900C05665 = {
+						CreatedOnToolsVersion = 8.1;
+						LastSwiftMigration = 0810;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 5FA491981DD63A7E0078BE41;
+					};
 					5FA491981DD63A7E0078BE41 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = 29286X6DM7;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -264,11 +339,19 @@
 			projectRoot = "";
 			targets = (
 				5FA491981DD63A7E0078BE41 /* Pokupalshik */,
+				5F9C94041DE5F1B900C05665 /* PokupalshikTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5F9C94031DE5F1B900C05665 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5FA491971DD63A7E0078BE41 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -331,6 +414,18 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5F9C94011DE5F1B900C05665 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F9C941D1DE60AD300C05665 /* DatabaseServiceTests.swift in Sources */,
+				5F9C941B1DE603C200C05665 /* PurchaseTests.swift in Sources */,
+				5F9C94121DE5F41200C05665 /* CurrencyTest.swift in Sources */,
+				5F9C94081DE5F1B900C05665 /* CurrencyStorageTests.swift in Sources */,
+				5F9C94211DE6189000C05665 /* ProductTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5FA491951DD63A7E0078BE41 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -338,10 +433,12 @@
 				5FF665791DE5BB6D00DA71E8 /* Encodable.swift in Sources */,
 				5F6B50511DE44820005052E3 /* Currency.swift in Sources */,
 				5FA491B51DD63B5A0078BE41 /* DatabaseService.swift in Sources */,
-				5F788DB81DDF0831005CCB1E /* PackageDataService.swift in Sources */,
+				5F788DB81DDF0831005CCB1E /* PackageDatabaseService.swift in Sources */,
 				5F6B50541DE44820005052E3 /* CurrencyTableViewController.swift in Sources */,
+				5F9C94141DE5F83F00C05665 /* NetworkError.swift in Sources */,
 				5FA4919D1DD63A7E0078BE41 /* AppDelegate.swift in Sources */,
 				5F2DF5511DDCF33400AD667D /* HistoryTableViewCell.swift in Sources */,
+				5F9C94161DE5F86000C05665 /* Types.swift in Sources */,
 				5F6B50581DE44A0B005052E3 /* APIManager.swift in Sources */,
 				5FF665771DE5AA0E00DA71E8 /* Decodable.swift in Sources */,
 				5FA491B81DD63B5A0078BE41 /* Purchase.swift in Sources */,
@@ -363,6 +460,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		5F9C940B1DE5F1B900C05665 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5FA491981DD63A7E0078BE41 /* Pokupalshik */;
+			targetProxy = 5F9C940A1DE5F1B900C05665 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		5FA491A51DD63A7E0078BE41 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -375,6 +480,35 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		5F9C940D1DE5F1B900C05665 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = PokupalshikTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = dmitrievichR.PokupalshikTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pokupalshik.app/Pokupalshik";
+			};
+			name = Debug;
+		};
+		5F9C940E1DE5F1B900C05665 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = PokupalshikTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = dmitrievichR.PokupalshikTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pokupalshik.app/Pokupalshik";
+			};
+			name = Release;
+		};
 		5FA491A91DD63A7E0078BE41 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -474,11 +608,13 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 29286X6DM7;
 				INFOPLIST_FILE = Pokupalshik/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dmitrievichR.Pokupalshik;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0.1;
 			};
 			name = Debug;
@@ -489,6 +625,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 29286X6DM7;
 				INFOPLIST_FILE = Pokupalshik/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -501,6 +638,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5F9C940C1DE5F1B900C05665 /* Build configuration list for PBXNativeTarget "PokupalshikTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5F9C940D1DE5F1B900C05665 /* Debug */,
+				5F9C940E1DE5F1B900C05665 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		5FA491941DD63A7E0078BE41 /* Build configuration list for PBXProject "Pokupalshik" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

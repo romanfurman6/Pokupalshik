@@ -1,5 +1,5 @@
 //
-//  Decodable.swift
+//  NetworkErrors.swift
 //  Pokupalshik
 //
 //  Created by Roman Dmitrieivich on 11/23/16.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol Decodable {
-    init?(from json: JSON)
+enum NetworkError: Error {
+    case invalidJSON
 }

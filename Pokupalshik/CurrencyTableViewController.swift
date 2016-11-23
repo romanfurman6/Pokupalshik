@@ -10,35 +10,45 @@ import UIKit
 
 class CurrencyTableViewController: UITableViewController {
     
-    var storage: [Currency] = [] {
+    var storage = [Currency]() {
         didSet {
             self.tableView.reloadData()
         }
     }
     
-    let defaults = UserDefaults.standard
-    var currencyStorage: CurrencyStorage!
+    var currencyStorage = CurrencyStorage.shared
+    
     @IBAction func dismiss(sender: AnyObject) {
-        dismiss(animated: true, completion: nil)
+        presentingViewController?.dismiss(animated: true, completion: nil)
+    }
+    func createAlertController() {
+        let alert = UIAlertController(title: "Unable to connect to the server", message: "Please verify that your device can connect to the internet.", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Retry", style: .default, handler: { action in self.getCurrencies()}))
+        self.present(alert, animated: true, completion: nil)
     }
     
     func getCurrencies() {
         return APIManager.shared.getCurrencies {
             (currency:[Currency]?, error: Error?) in
-            for dict in currency! {
-                self.storage.append(dict)
+            if error == nil {
+                for dict in currency! {
+                    self.storage.append(dict)
+                }
+                self.storage.insert(Currency(name: "USD", coef: 1), at: 0)
+            } else {
+                self.createAlertController()
             }
-            self.storage.insert(Currency(name: "USD", coef: 1), at: 0)
         }
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         getCurrencies()
-    }
-    
-    override var prefersStatusBarHidden: Bool {
-        return true
+        title = "Currencies"
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

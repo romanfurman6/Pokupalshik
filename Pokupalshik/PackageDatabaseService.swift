@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PackageDataService: DatabaseService<Package> {
+class PackageDatabaseService: DatabaseService<Package> {
     
     func deleteProduct(purchaseId: Int64, productId: Int64) {
         let query = "DELETE FROM productsPurchases WHERE id = \(purchaseId) AND productId = \(productId)"

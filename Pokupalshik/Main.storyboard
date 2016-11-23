@@ -26,7 +26,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="ans-83-5Qg" customClass="ProductCollectionViewCell" customModule="Pokupalshik" customModuleProvider="target">
-                                <rect key="frame" x="6.5" y="10" width="150" height="150"/>
+                                <rect key="frame" x="7" y="10" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
@@ -113,7 +113,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Qsb-Jl-d9I" id="9EC-gX-7De">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xnK-l9-fHv">
@@ -212,7 +212,7 @@
                     <connections>
                         <outlet property="purchaseButton" destination="OhN-iP-ZMK" id="2l3-mP-MaT"/>
                         <outlet property="tableView" destination="qGQ-uQ-49m" id="1q6-Dc-UyG"/>
-                        <segue destination="aOi-Wn-0aD" kind="showDetail" identifier="chooseCurrency" id="QCt-kp-9qa"/>
+                        <segue destination="OAH-Bx-VFY" kind="presentation" identifier="chooseCurrency" id="QCt-kp-9qa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hio-3s-cQr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -227,25 +227,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="yfA-wo-NdC">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <items>
-                                <navigationItem title="Title" id="u57-Be-Elo">
-                                    <barButtonItem key="rightBarButtonItem" systemItem="save" id="IIB-p3-OFs">
-                                        <connections>
-                                            <action selector="dismissWithSender:" destination="aOi-Wn-0aD" id="Trc-sc-fSA"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </navigationItem>
-                            </items>
-                        </navigationBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="currencyCell" id="Uwp-qb-zFk" customClass="CurrencyTableViewCell" customModule="Pokupalshik" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Uwp-qb-zFk" id="DOX-lv-hbx">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pzs-2u-DQe">
@@ -267,10 +254,17 @@
                             <outlet property="delegate" destination="aOi-Wn-0aD" id="AgZ-Mf-n2w"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="ekW-fu-ZfB">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="IIB-p3-OFs">
+                            <connections>
+                                <action selector="dismissWithSender:" destination="aOi-Wn-0aD" id="Trc-sc-fSA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KcN-a3-vK0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4629" y="929"/>
+            <point key="canvasLocation" x="5567.1999999999998" y="928.78560719640188"/>
         </scene>
         <!--Products-->
         <scene sceneID="MZQ-dX-9up">
@@ -304,7 +298,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rdg-TU-Vs6" id="uQ8-B1-836">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SzI-rD-uTT">
@@ -403,6 +397,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sY5-0W-uV4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1479.375" y="929.57746478873241"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="uR9-N1-dTF">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OAH-Bx-VFY" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Bmb-BL-rEe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="aOi-Wn-0aD" kind="relationship" relationship="rootViewController" id="fOR-UK-qOt"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UxO-q6-96U" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4628" y="928.78560719640188"/>
         </scene>
     </scenes>
     <resources>

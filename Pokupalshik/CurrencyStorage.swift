@@ -11,21 +11,24 @@ import Foundation
 class CurrencyStorage {
     
     private struct Keys {
-        static let CurrencyName = "CurrencyName"
-        static let CurrencyCoef = "CurrencyCoef"
+        static let Currency = "Currency"
     }
     
-    let defaults = UserDefaults.standard
     static let shared = CurrencyStorage()
+    
     var currentCurrency: Currency {
         set {
-            defaults.set(newValue.jsonValue, forKey: "currentCurrency")
+            UserDefaults.standard.set(newValue.jsonValue, forKey: Keys.Currency)
         }
         get {
-            guard let dict = defaults.dictionary(forKey: "currentCurrency") else {
+            guard
+                let dict = UserDefaults.standard.dictionary(forKey: Keys.Currency),
+                let currency = Currency(from: dict)
+            else {
                 return Currency(name: "USD", coef: 1.0)
             }
-            return Currency(name: (dict.first?.key)!, coef: dict.first?.value as! Double)
+            
+            return currency
         }
     }
 }
