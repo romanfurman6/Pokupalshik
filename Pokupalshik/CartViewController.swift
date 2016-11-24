@@ -93,7 +93,12 @@ class CartViewController: UIViewController {
     }
     
     func chooseCurrency() {
-        performSegue(withIdentifier: "chooseCurrency", sender: nil)
+        guard let currencyTableVC = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "CurrencyTableViewController") as? CurrencyTableViewController else {
+            return
+        }
+        
+        let navController = UINavigationController(rootViewController: currencyTableVC)
+        self.present(navController, animated:true, completion: nil)
     }
 }
 

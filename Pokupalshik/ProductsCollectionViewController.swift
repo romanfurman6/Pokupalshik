@@ -18,8 +18,9 @@ class ProductsCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        title = "Products"
         createCartButtonWithBadge()
+        
         
         collectionView?.backgroundColor = UIColor(red: 235.0/255.0, green: 235.0/255.0, blue: 235.0/255.0, alpha: 1)
         productList = Product.service.fetchObjects()
@@ -60,15 +61,6 @@ class ProductsCollectionViewController: UICollectionViewController {
         updateBadgeCounter()
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "cartSegue" {
-            let cartVC = segue.destination as! CartViewController
-            cartVC.productsCart = cart
-            cartVC.purchasesHistory = nil
-        }
-    }
-    
-    
 }
 
 extension ProductsCollectionViewController {
@@ -79,7 +71,6 @@ extension ProductsCollectionViewController {
         cartBarButton.addTarget(self,
                                 action: #selector(handleCartTap),
                                 for: .touchUpInside)
-        
     }
     
     func updateBadgeCounter() {
@@ -91,7 +82,13 @@ extension ProductsCollectionViewController {
     }
     
     func handleCartTap() {
-        performSegue(withIdentifier: "cartSegue", sender: nil)
+        guard let cartVC = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "CartViewController") as? CartViewController else {
+            return
+        }
+        
+        cartVC.productsCart = self.cart
+        cartVC.purchasesHistory = nil
+        self.navigationController?.pushViewController(cartVC, animated:true)
     }
     
 }
