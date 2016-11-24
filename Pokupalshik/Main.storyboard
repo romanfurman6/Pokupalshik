@@ -26,7 +26,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="ans-83-5Qg" customClass="ProductCollectionViewCell" customModule="Pokupalshik" customModuleProvider="target">
-                                <rect key="frame" x="7" y="10" width="150" height="150"/>
+                                <rect key="frame" x="6.5" y="10" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
@@ -96,7 +96,7 @@
         <!--Cart View Controller-->
         <scene sceneID="BOg-rW-u3L">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="dOL-u3-fSH" customClass="CartViewController" customModule="Pokupalshik" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CartViewController" hidesBottomBarWhenPushed="YES" id="dOL-u3-fSH" customClass="CartViewController" customModule="Pokupalshik" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fO3-Hm-tfZ"/>
                         <viewControllerLayoutGuide type="bottom" id="wA7-XV-nfb"/>
@@ -113,7 +113,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Qsb-Jl-d9I" id="9EC-gX-7De">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xnK-l9-fHv">
@@ -222,7 +222,7 @@
         <!--Currency Table View Controller-->
         <scene sceneID="85g-pI-SoJ">
             <objects>
-                <tableViewController id="aOi-Wn-0aD" customClass="CurrencyTableViewController" customModule="Pokupalshik" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="CurrencyTableViewController" id="aOi-Wn-0aD" customClass="CurrencyTableViewController" customModule="Pokupalshik" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="JQ6-TU-u8x">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -232,7 +232,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Uwp-qb-zFk" id="DOX-lv-hbx">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pzs-2u-DQe">
@@ -298,7 +298,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rdg-TU-Vs6" id="uQ8-B1-836">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SzI-rD-uTT">
@@ -422,6 +422,6 @@
         <image name="plus" width="488" height="488"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="UHW-nM-cga"/>
+        <segue reference="6KH-Ym-tnE"/>
     </inferredMetricsTieBreakers>
 </document>

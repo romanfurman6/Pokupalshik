@@ -35,6 +35,7 @@ extension Currency: Encodable {
     }
 }
 
+
 extension Currency: Equatable { }
 func ==(lhs: Currency, rhs: Currency) -> Bool {
     return lhs.name == rhs.name && lhs.coef == rhs.coef

@@ -83,6 +83,4 @@ class CurrencyTableViewController: UITableViewController {
         let currency = storage[indexPath.row]
         CurrencyStorage.shared.currentCurrency = currency
     }
-    
-    
 }

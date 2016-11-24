@@ -15,28 +15,11 @@ class CartViewController: UIViewController {
     var purchasesHistory: PurchasesHistory?
     var productsCart: ProductsCart!
     let currencyBarButton: UIButton = UIButton(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
-    
-    
-    func checkCurrentCurrency() {
-        let currentCurrencyName = "currentCurrencyName"
-        let currentCurrencyCoef = "currentCurrencyCoef"
-        
-        let defaults = UserDefaults.standard
-        if
-            let _ = defaults.string(forKey: currentCurrencyName),
-            let _ = defaults.string(forKey: currentCurrencyCoef) {
-            
-            CurrencyStorage.shared.currentCurrency = Currency(name: defaults.string(forKey: currentCurrencyName)!, coef: defaults.double(forKey: currentCurrencyCoef))
-        } else {
-            CurrencyStorage.shared.currentCurrency = Currency(name: "USD", coef: 1.0)
-        }
-    }
+
     
     func updatePurchaseButtonLabel() {
         purchaseButton.setTitle("Purchase" + " (\(productsCart.totalProductsPrice.roundTo(places: 2)))", for: .normal)
     }
-    
-    
     
     func purchase() {
         

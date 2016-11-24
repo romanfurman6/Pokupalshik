@@ -19,7 +19,6 @@ class APIManager {
                 DispatchQueue.main.async {
                     switch response.result {
                     case .success(let json):
-                        print("success")
                         guard
                             let json = json as? JSON,
                             let dict = json["rates"] as? JSON
@@ -37,7 +36,6 @@ class APIManager {
                         
                         completionHandler(currencies, nil)
                     case .failure(let error):
-                        print(error)
                         completionHandler(nil, error)
                     }
                 }
