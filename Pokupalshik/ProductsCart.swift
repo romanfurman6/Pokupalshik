@@ -13,6 +13,9 @@ class ProductsCart {
     func clearCart() {
         productsList.removeAll()
     }
+    var isEmpty: Bool {
+        return productsList.isEmpty
+    }
     
     func add(product: Product) {
         productsList.append(product)

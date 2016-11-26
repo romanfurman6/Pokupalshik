@@ -19,6 +19,7 @@ class CurrencyTableViewController: UITableViewController {
     var currencyStorage = CurrencyStorage.shared
     
     @IBAction func dismiss(sender: AnyObject) {
+        storage.removeAll()
         presentingViewController?.dismiss(animated: true, completion: nil)
     }
     func createAlertController() {

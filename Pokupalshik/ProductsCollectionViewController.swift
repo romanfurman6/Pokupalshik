@@ -2,6 +2,7 @@ import UIKit
 import MIBadgeButton_Swift
 
 
+
 class ProductsCollectionViewController: UICollectionViewController {
     
     let cartBarButton: MIBadgeButton = MIBadgeButton(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
@@ -20,7 +21,7 @@ class ProductsCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         title = "Products"
         createCartButtonWithBadge()
-        
+        createClearCartButton()
         
         collectionView?.backgroundColor = UIColor(red: 235.0/255.0, green: 235.0/255.0, blue: 235.0/255.0, alpha: 1)
         productList = Product.service.fetchObjects()
@@ -45,7 +46,7 @@ class ProductsCollectionViewController: UICollectionViewController {
         
         cell.layer.cornerRadius = 10
         
-        cell.layer.shadowOffset = CGSize(width: 0, height: 0)
+//        cell.layer.shadowOffset = CGSize(width: 0, height: 0)
         cell.layer.shadowColor = UIColor.black.cgColor
         cell.layer.shadowRadius = 3
         cell.layer.shadowOpacity = 0.20
@@ -53,7 +54,6 @@ class ProductsCollectionViewController: UICollectionViewController {
         
         return cell
     }
-    
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let product = productList[indexPath.row]
@@ -64,6 +64,15 @@ class ProductsCollectionViewController: UICollectionViewController {
 }
 
 extension ProductsCollectionViewController {
+    
+    func createClearCartButton() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Clear", style: .plain, target: self, action: #selector(clearCart))
+    }
+    
+    func clearCart() {
+        cart.clearCart()
+        updateBadgeCounter()
+    }
     
     func createCartButtonWithBadge() {
         cartBarButton.setImage(UIImage(named: "Cart"), for: .normal)
@@ -76,6 +85,7 @@ extension ProductsCollectionViewController {
     func updateBadgeCounter() {
         if cart.countOfProduct == 0 {
             cartBarButton.badgeString = nil
+            
         } else {
             cartBarButton.badgeString = "\(cart.countOfProduct)"
         }
@@ -90,7 +100,6 @@ extension ProductsCollectionViewController {
         cartVC.purchasesHistory = nil
         self.navigationController?.pushViewController(cartVC, animated:true)
     }
-    
 }
 
 extension ProductsCollectionViewController: UICollectionViewDelegateFlowLayout {
@@ -117,6 +126,5 @@ extension ProductsCollectionViewController: UICollectionViewDelegateFlowLayout {
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return sectionInsets.left
     }
-    
 }
 

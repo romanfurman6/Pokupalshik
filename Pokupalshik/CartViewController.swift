@@ -15,8 +15,7 @@ class CartViewController: UIViewController {
     var purchasesHistory: PurchasesHistory?
     var productsCart: ProductsCart!
     let currencyBarButton: UIButton = UIButton(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
-
-    
+        
     func updatePurchaseButtonLabel() {
         purchaseButton.setTitle("Purchase" + " (\(productsCart.totalProductsPrice.roundTo(places: 2)))", for: .normal)
     }
@@ -47,7 +46,6 @@ class CartViewController: UIViewController {
         _ = Package.service.updatePurchase(package: Package(id: editPurchase.id, productId: updateProduct.0.id, productCount: Int64(updateProduct.1)), purchaseId: editPurchase.id, productId: updateProduct.0.id)
     }
     
-    
     func minusProductCount(_ sender: AnyObject) {
         let button = sender as? UIButton
         let cell = button?.superview?.superview as? CartTableViewCell
@@ -65,7 +63,6 @@ class CartViewController: UIViewController {
                 product = productsCart.products[(indexPath?.row)!]
                 updatePurchase(product: product)
             }
-            
         }
     }
     
@@ -132,6 +129,18 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource  {
         tableView.reloadData()
         updatePurchaseButtonLabel()
     }
+    func dismissVC() {
+        _ = navigationController?.popToRootViewController(animated: true)
+    }
+    
+    func createAlert() {
+        let alert = UIAlertController(title: nil, message: "Add some products", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { action in
+            self.dismissVC()
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -140,9 +149,12 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource  {
         if purchasesHistory != nil {
             purchaseButton.isEnabled = false
         }
+        if productsCart.isEmpty {
+            purchaseButton.isEnabled = false
+            createAlert()
+        }
         
         purchaseButton.addTarget(self, action: #selector(purchase), for: .touchUpInside)
-        
         tableView.backgroundColor = UIColor(red: 235.0/255.0, green: 235.0/255.0, blue: 235.0/255.0, alpha: 1)
         
         createCurrencyButton()
