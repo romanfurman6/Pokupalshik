@@ -18,6 +18,7 @@ class HistoryTableViewController: UITableViewController {
         purchasesHistory.purchases = Purchase.service.fetchObjects()
         productCart.clearCart()
         tableView.reloadData()
+        title = "History"
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -31,7 +32,8 @@ class HistoryTableViewController: UITableViewController {
         
         cell.timeLabel.text = purchase.time.customFormatted
         cell.cartLabel.image = UIImage(named: "CartLogo")
-        cell.priceLabel.text = String(purchasesHistory.getPrice(of: purchase))
+        cell.priceLabel.text = String(purchasesHistory.getPrice(of: purchase).roundTo(places: 2))
+        cell.currencyNameLabel.text = CurrencyStorage.shared.currentCurrency.name
         
         
         return cell
@@ -61,15 +63,6 @@ class HistoryTableViewController: UITableViewController {
             tableView.reloadData()
         }
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "purchaseToCart" {
-            let cartVC = segue.destination as! CartViewController
-            cartVC.productsCart = productCart
-            cartVC.purchasesHistory = purchasesHistory
-            
-        }
-    }
 
 }
 
@@ -85,6 +78,12 @@ extension HistoryTableViewController {
     }
     
     func openPurchase() {
-        performSegue(withIdentifier: "purchaseToCart", sender: nil)
+        guard let cartVC = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "CartViewController") as? CartViewController else {
+            return
+        }
+        
+        cartVC.productsCart = productCart
+        cartVC.purchasesHistory = purchasesHistory
+        self.navigationController?.pushViewController(cartVC, animated:true)
     }
 }

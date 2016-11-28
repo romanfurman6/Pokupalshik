@@ -10,17 +10,13 @@ import Foundation
 
 struct Package: DatabaseManagable {
     
-    static let service = PackageDataService()
+    static let service = PackageDatabaseService()
     
     static var tableName = "productsPurchases"
-    
     
     var id: Int64
     var productId: Int64
     var productCount: Int64
-    
-    
-    
     
     fileprivate struct Keys {
         static let id = "id"

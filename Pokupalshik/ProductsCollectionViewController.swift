@@ -2,27 +2,33 @@ import UIKit
 import MIBadgeButton_Swift
 
 
+
 class ProductsCollectionViewController: UICollectionViewController {
     
     let cartBarButton: MIBadgeButton = MIBadgeButton(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
+    let itemsPerRow: CGFloat = 2
+    let sectionInsets = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
     var productList = [Product]()
     var cart = ProductsCart()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateBadgeCounter()
+        collectionView?.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Products"
         createCartButtonWithBadge()
+        createClearCartButton()
         
         collectionView?.backgroundColor = UIColor(red: 235.0/255.0, green: 235.0/255.0, blue: 235.0/255.0, alpha: 1)
         productList = Product.service.fetchObjects()
         
     }
     
-
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return productList.count
     }
@@ -34,40 +40,39 @@ class ProductsCollectionViewController: UICollectionViewController {
         
         cell.image.image = UIImage(named: "\(product.name)")
         cell.nameLabel.text = product.name
-        cell.priceLabel.text = String(product.price)
+        
+        cell.currencyNameLabel.text = CurrencyStorage.shared.currentCurrency.name
+        cell.priceLabel.text = String(((product.price) * Double((CurrencyStorage.shared.currentCurrency.coef))).roundTo(places: 2))
         
         cell.layer.cornerRadius = 10
         
-        cell.layer.shadowOffset = CGSize(width: 0, height: 0)
+//        cell.layer.shadowOffset = CGSize(width: 0, height: 0)
         cell.layer.shadowColor = UIColor.black.cgColor
         cell.layer.shadowRadius = 3
         cell.layer.shadowOpacity = 0.20
         cell.layer.masksToBounds = false
         
-        
         return cell
     }
-    
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let product = productList[indexPath.row]
         cart.add(product: product)
         updateBadgeCounter()
     }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "cartSegue" {
-            let cartVC = segue.destination as! CartViewController
-            cartVC.productsCart = cart
-            cartVC.purchasesHistory = nil
-        }
-    }
-    let itemsPerRow: CGFloat = 2
-    let sectionInsets = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
     
 }
 
 extension ProductsCollectionViewController {
+    
+    func createClearCartButton() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Clear", style: .plain, target: self, action: #selector(clearCart))
+    }
+    
+    func clearCart() {
+        cart.clearCart()
+        updateBadgeCounter()
+    }
     
     func createCartButtonWithBadge() {
         cartBarButton.setImage(UIImage(named: "Cart"), for: .normal)
@@ -75,28 +80,29 @@ extension ProductsCollectionViewController {
         cartBarButton.addTarget(self,
                                 action: #selector(handleCartTap),
                                 for: .touchUpInside)
-        
     }
     
     func updateBadgeCounter() {
         if cart.countOfProduct == 0 {
             cartBarButton.badgeString = nil
+            
         } else {
             cartBarButton.badgeString = "\(cart.countOfProduct)"
         }
-        
     }
     
     func handleCartTap() {
-        performSegue(withIdentifier: "cartSegue", sender: nil)
+        guard let cartVC = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "CartViewController") as? CartViewController else {
+            return
+        }
+        
+        cartVC.productsCart = self.cart
+        cartVC.purchasesHistory = nil
+        self.navigationController?.pushViewController(cartVC, animated:true)
     }
-    
 }
 
-
 extension ProductsCollectionViewController: UICollectionViewDelegateFlowLayout {
-
-    
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
@@ -120,6 +126,5 @@ extension ProductsCollectionViewController: UICollectionViewDelegateFlowLayout {
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return sectionInsets.left
     }
-
 }
 

@@ -2,10 +2,6 @@
 
 import Foundation
 
-/*
- 
- */
-
 class ProductsCart {
     
     private var productsList: [Product] = [] {
@@ -17,6 +13,9 @@ class ProductsCart {
     func clearCart() {
         productsList.removeAll()
     }
+    var isEmpty: Bool {
+        return productsList.isEmpty
+    }
     
     func add(product: Product) {
         productsList.append(product)
@@ -27,14 +26,14 @@ class ProductsCart {
     }
 
     var totalProductsPrice: Double {
-       return productsList.map { $0.price }.reduce(0.0, +)
+       return (productsList.map { $0.price }.reduce(0.0, +)) * CurrencyStorage.shared.currentCurrency.coef
     }
     
     func totalPriceOf(product: Product) -> Double {
         var price = 0.0
         var product = products.filter { $0.0 == product }
         if !product.isEmpty {
-            price = product[0].0.price * Double(product[0].1)
+            price = (product[0].0.price * Double(product[0].1)) * CurrencyStorage.shared.currentCurrency.coef
         }
         return price
     }
@@ -69,6 +68,7 @@ class ProductsCart {
 }
 
 extension ProductsCart {
+    
     func quickSort(arr: [Product]) -> [Product] {
         if arr.count > 1 {
             
