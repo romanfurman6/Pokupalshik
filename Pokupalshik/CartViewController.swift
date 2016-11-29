@@ -8,10 +8,19 @@
 
 import UIKit
 
+protocol CartViewControllerDelegate {
+    func tapAdd(in vc: CartViewController)
+    func tapPurchase(in vc: CartViewController)
+    func tapCurrency(in vc: CartViewController)
+}
+
 class CartViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var purchaseButton: UIButton!
+    
+    var delegate: CartViewControllerDelegate?
+    
     var purchasesHistory: PurchasesHistory?
     var productsCart: ProductsCart!
     let currencyBarButton: UIButton = UIButton(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
@@ -28,12 +37,10 @@ class CartViewController: UIViewController {
         for i in productsCart.products {
             _ = Package.service.insert(object: Package(id: newPurchaseID, productId: i.0.id, productCount: Int64(i.1)))
         }
-        productsCart.clearCart()
-        
-        _ = self.navigationController?.popViewController(animated: true)
+        delegate?.tapPurchase(in: self)
         
     }
-    
+    //TODO: -DELETE FUNC
     func checkProductInPackage() ->  Bool {
         let editPurchaseId = purchasesHistory?.editPurchase?.id
         let object = Package.service.fetchObjectBy(id: editPurchaseId!)
@@ -90,12 +97,7 @@ class CartViewController: UIViewController {
     }
     
     func chooseCurrency() {
-        guard let currencyTableVC = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "CurrencyTableViewController") as? CurrencyTableViewController else {
-            return
-        }
-        
-        let navController = UINavigationController(rootViewController: currencyTableVC)
-        self.present(navController, animated:true, completion: nil)
+        delegate?.tapCurrency(in: self)
     }
 }
 
@@ -130,7 +132,7 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource  {
         updatePurchaseButtonLabel()
     }
     func dismissVC() {
-        _ = navigationController?.popToRootViewController(animated: true)
+        delegate?.tapAdd(in: self)
     }
     
     func createAlert() {

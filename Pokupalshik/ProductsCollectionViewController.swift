@@ -1,15 +1,19 @@
 import UIKit
 import MIBadgeButton_Swift
 
-
+protocol ProductsCollectionViewControllerDelegate {
+    func didTapCart(in vc: ProductsCollectionViewController)
+}
 
 class ProductsCollectionViewController: UICollectionViewController {
     
+    
     let cartBarButton: MIBadgeButton = MIBadgeButton(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
     let itemsPerRow: CGFloat = 2
+    var delegate: ProductsCollectionViewControllerDelegate?
     let sectionInsets = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
     var productList = [Product]()
-    var cart = ProductsCart()
+    var cart: ProductsCart!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -46,7 +50,7 @@ class ProductsCollectionViewController: UICollectionViewController {
         
         cell.layer.cornerRadius = 10
         
-//        cell.layer.shadowOffset = CGSize(width: 0, height: 0)
+        cell.layer.shadowOffset = CGSize(width: 0, height: 0)
         cell.layer.shadowColor = UIColor.black.cgColor
         cell.layer.shadowRadius = 3
         cell.layer.shadowOpacity = 0.20
@@ -92,13 +96,7 @@ extension ProductsCollectionViewController {
     }
     
     func handleCartTap() {
-        guard let cartVC = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "CartViewController") as? CartViewController else {
-            return
-        }
-        
-        cartVC.productsCart = self.cart
-        cartVC.purchasesHistory = nil
-        self.navigationController?.pushViewController(cartVC, animated:true)
+        delegate?.didTapCart(in: self)
     }
 }
 

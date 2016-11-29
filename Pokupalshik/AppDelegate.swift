@@ -5,10 +5,16 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    private var appCoordinator: AppCoordinator!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
-        createRelations()
+        let tabBarController = UITabBarController()
+        window?.rootViewController = tabBarController
+        
+        appCoordinator = AppCoordinator(window: window!, tabBarController: tabBarController)
+        appCoordinator.start()
+        
         checkDatabase()
 
         return true
