@@ -8,10 +8,15 @@
 
 import UIKit
 
+protocol CurrencyCoordinatorDelegate {
+    func didFinish(in coordinator: CurrencyCoordinator)
+}
+
 class CurrencyCoordinator: CoordinatorProtocol {
     
-    let navigationController: UINavigationController
+    var navigationController: UINavigationController?
     let cartVC: CartViewController
+    var delegate: CurrencyCoordinatorDelegate?
     var currencyViewController: CurrencyTableViewController?
     
     init(cartVC: CartViewController) {
@@ -21,19 +26,20 @@ class CurrencyCoordinator: CoordinatorProtocol {
         }
         self.currencyViewController = currencyTVC
         self.cartVC = cartVC
-        let navController = UINavigationController(rootViewController: currencyViewController!)
-        
-        self.navigationController = navController
-    }
-    
-    func start() {
-            cartVC.present(navigationController, animated: true, completion: nil)
+        self.navigationController = UINavigationController(rootViewController: currencyViewController!)
         currencyViewController?.delegate = self
     }
     
+    func start() {
+            cartVC.present(navigationController!, animated: true, completion: nil)
+        
+    }
+    
     func finish() {
-        navigationController.presentingViewController?.dismiss(animated: true, completion: nil)
+        navigationController?.presentingViewController?.dismiss(animated: true, completion: nil)
         currencyViewController = nil
+        navigationController = nil
+        delegate?.didFinish(in: self)
     }
 }
 

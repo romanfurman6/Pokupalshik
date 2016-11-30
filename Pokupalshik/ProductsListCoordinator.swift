@@ -27,29 +27,32 @@ class ProductsListCoordinator: CoordinatorProtocol {
                                             bundle: Bundle.main).instantiateViewController(withIdentifier: "ProductsCollectionViewController") as? ProductsCollectionViewController else {
                                                 fatalError()
         }
-        
+        productListCollectionViewController = productsListTVC
         navigationController.pushViewController(productsListTVC, animated: true)
         productsListTVC.delegate = self
-        productListCollectionViewController = productsListTVC
         productsListTVC.cart = cart
-        
-        
+        cartCoordinator?.delegate = self
     }
-    func finish() {}
+    func finish() {
     
-    
+    }
 }
 
 
 extension ProductsListCoordinator: ProductsCollectionViewControllerDelegate {
     func didTapCart(in vc: ProductsCollectionViewController) {
         cartCoordinator = CartCoordinator(navigationController: navigationController, productsCart: cart)
-        
-        
+        cartCoordinator?.navigationController = navigationController
+        cartCoordinator?.productsCart = cart
+        cartCoordinator?.delegate = self
         cartCoordinator?.start()
     }
-    
 }
 
+extension ProductsListCoordinator: CartCoordinatorDelegate {
+    func didFinish(in: CartCoordinator) {
+        cartCoordinator = nil
+    }
+}
 
 

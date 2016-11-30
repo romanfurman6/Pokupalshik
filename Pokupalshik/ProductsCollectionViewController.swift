@@ -7,9 +7,8 @@ protocol ProductsCollectionViewControllerDelegate {
 
 class ProductsCollectionViewController: UICollectionViewController {
     
-    
-    let cartBarButton: MIBadgeButton = MIBadgeButton(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
-    let itemsPerRow: CGFloat = 2
+    var cartBarButton: MIBadgeButton = MIBadgeButton(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
+    var itemsPerRow: CGFloat = 2
     var delegate: ProductsCollectionViewControllerDelegate?
     let sectionInsets = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
     var productList = [Product]()
@@ -18,6 +17,7 @@ class ProductsCollectionViewController: UICollectionViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateBadgeCounter()
+        checkDeviceOrientation()
         collectionView?.reloadData()
     }
     
@@ -32,6 +32,20 @@ class ProductsCollectionViewController: UICollectionViewController {
         
     }
     
+    func checkDeviceOrientation() {
+        if UIDevice.current.orientation.isPortrait {
+            itemsPerRow = 2
+            cartBarButton.transform = CGAffineTransform(scaleX: 1, y: 1)
+        } else if UIDevice.current.orientation.isLandscape {
+            itemsPerRow = 3
+            cartBarButton.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+        }
+    }
+    
+    override func willRotate(to toInterfaceOrientation: UIInterfaceOrientation, duration: TimeInterval) {
+        checkDeviceOrientation()
+    }
+    
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return productList.count
@@ -40,6 +54,7 @@ class ProductsCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ProductCollectionViewCell
+        cell.delegate = self
         let product = productList[indexPath.row]
         
         cell.image.image = UIImage(named: "\(product.name)")
@@ -59,10 +74,10 @@ class ProductsCollectionViewController: UICollectionViewController {
         return cell
     }
     
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let product = productList[indexPath.row]
-        cart.add(product: product)
-        updateBadgeCounter()
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.willTransition(to: newCollection, with: coordinator)
+        
+        collectionView?.collectionViewLayout.invalidateLayout()
     }
     
 }
@@ -124,5 +139,17 @@ extension ProductsCollectionViewController: UICollectionViewDelegateFlowLayout {
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return sectionInsets.left
     }
+}
+
+extension ProductsCollectionViewController: ProductCollectionViewCellDelegate {
+    
+    func touchBegan(cell: ProductCollectionViewCell, event: UIEvent) {}
+    func touchEnded(cell: ProductCollectionViewCell, event: UIEvent) {
+        let indexPath = collectionView?.indexPath(for: cell)
+        let product = productList[(indexPath?.row)!]
+        cart.add(product: product)
+        updateBadgeCounter()
+    }
+    func touchCancelled(cell: ProductCollectionViewCell, event: UIEvent) {}
 }
 

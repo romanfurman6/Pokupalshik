@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class HistoryCoordinator: CoordinatorProtocol {
     
     let navigationController: UINavigationController
@@ -27,24 +28,28 @@ class HistoryCoordinator: CoordinatorProtocol {
                                     bundle: Bundle.main).instantiateViewController(withIdentifier: "HistoryTableViewController") as? HistoryTableViewController else {
                                         fatalError()
         }
-        
+        historyTableViewController = historyTVC
         navigationController.pushViewController(historyTVC, animated: true)
         historyTVC.delegate = self
-        historyTableViewController = historyTVC
         historyTVC.productCart = cart
         historyTVC.purchasesHistory = purchasesHistory
+        
     }
     
-    func finish() {
-    
-    }
-    
+    func finish() {}
 }
 
 extension HistoryCoordinator: HistoryTableViewControllerDelegate {
     func didTapCart(in vc: HistoryTableViewController) {
         cartCoordinator = CartCoordinator(navigationController: navigationController, productsCart: cart)
+        cartCoordinator?.delegate = self
         cartCoordinator?.purchaseHistory = purchasesHistory
         cartCoordinator?.start()
+    }
+}
+
+extension HistoryCoordinator: CartCoordinatorDelegate {
+    func didFinish(in: CartCoordinator) {
+        cartCoordinator = nil
     }
 }
