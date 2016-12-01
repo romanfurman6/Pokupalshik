@@ -16,7 +16,7 @@ class HistoryCoordinator: CoordinatorProtocol {
     let cart = ProductsCart()
     var cartCoordinator: CartCoordinator?
     var purchasesHistory = PurchasesHistory()
-    var historyTableViewController: UIViewController?
+    var historyTableViewController: HistoryTableViewController?
     
     init(navigationController: UINavigationController, tabBarItem: UITabBarItem) {
         self.navigationController = navigationController
@@ -24,15 +24,12 @@ class HistoryCoordinator: CoordinatorProtocol {
     }
     
     func start() {
-        guard let historyTVC = UIStoryboard(name: "Main",
-                                    bundle: Bundle.main).instantiateViewController(withIdentifier: "HistoryTableViewController") as? HistoryTableViewController else {
-                                        fatalError()
-        }
-        historyTableViewController = historyTVC
-        navigationController.pushViewController(historyTVC, animated: true)
-        historyTVC.delegate = self
-        historyTVC.productCart = cart
-        historyTVC.purchasesHistory = purchasesHistory
+
+        self.historyTableViewController = StoryboardScene.Main.instantiateHistoryTableViewController()
+        navigationController.pushViewController(historyTableViewController!, animated: true)
+        historyTableViewController?.delegate = self
+        historyTableViewController?.productCart = cart
+        historyTableViewController?.purchasesHistory = purchasesHistory
         
     }
     

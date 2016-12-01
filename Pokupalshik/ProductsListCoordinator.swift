@@ -13,7 +13,7 @@ class ProductsListCoordinator: CoordinatorProtocol {
     let navigationController: UINavigationController
     let tabBarItem: UITabBarItem
     let cart = ProductsCart()
-    var productListCollectionViewController: UIViewController?
+    var productListCollectionViewController: ProductsCollectionViewController?
     var cartCoordinator: CartCoordinator?
     
  init(navigationController: UINavigationController, tabBarItem: UITabBarItem) {
@@ -23,14 +23,10 @@ class ProductsListCoordinator: CoordinatorProtocol {
     
     
     func start() {
-        guard let productsListTVC = UIStoryboard(name: "Main",
-                                            bundle: Bundle.main).instantiateViewController(withIdentifier: "ProductsCollectionViewController") as? ProductsCollectionViewController else {
-                                                fatalError()
-        }
-        productListCollectionViewController = productsListTVC
-        navigationController.pushViewController(productsListTVC, animated: true)
-        productsListTVC.delegate = self
-        productsListTVC.cart = cart
+        self.productListCollectionViewController = StoryboardScene.Main.instantiateProductsCollectionViewController()
+        navigationController.pushViewController(productListCollectionViewController!, animated: true)
+        productListCollectionViewController?.delegate = self
+        productListCollectionViewController?.cart = cart
         cartCoordinator?.delegate = self
     }
     func finish() {

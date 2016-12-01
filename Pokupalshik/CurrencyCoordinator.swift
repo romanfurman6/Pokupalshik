@@ -20,11 +20,8 @@ class CurrencyCoordinator: CoordinatorProtocol {
     var currencyViewController: CurrencyTableViewController?
     
     init(cartVC: CartViewController) {
-        guard let currencyTVC = UIStoryboard(name: "Main",
-                                             bundle: Bundle.main).instantiateViewController(withIdentifier: "CurrencyTableViewController") as? CurrencyTableViewController else {
-                                                fatalError()
-        }
-        self.currencyViewController = currencyTVC
+        
+        self.currencyViewController = StoryboardScene.Main.instantiateCurrencyTableViewController()
         self.cartVC = cartVC
         self.navigationController = UINavigationController(rootViewController: currencyViewController!)
         currencyViewController?.delegate = self

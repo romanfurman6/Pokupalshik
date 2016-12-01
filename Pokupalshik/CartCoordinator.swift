@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//cartdelegate -didfinish
+
 protocol CartCoordinatorDelegate {
     func didFinish(in Coordinator: CartCoordinator)
 }
@@ -23,15 +23,9 @@ class CartCoordinator: CoordinatorProtocol {
     var historyCoordinator: HistoryCoordinator?
     
     init(navigationController: UINavigationController, productsCart: ProductsCart) {
-
-        guard let cartVC = UIStoryboard(name: "Main",
-                                                 bundle: Bundle.main).instantiateViewController(withIdentifier: "CartViewController") as? CartViewController else {
-                                                    fatalError()
-        }
-        
         self.navigationController = navigationController
         self.productsCart = productsCart
-        self.cartViewController = cartVC
+        self.cartViewController = StoryboardScene.Main.instantiateCartViewController()
         cartViewController?.delegate = self
         
     }

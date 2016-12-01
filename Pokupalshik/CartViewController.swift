@@ -142,7 +142,6 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource  {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
-        checkDeviceOrientation()
         updatePurchaseButtonLabel()
         createBackButton()
     }
@@ -161,6 +160,8 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = "Cart"
         updatePurchaseButtonLabel()
         
         if purchasesHistory != nil {
@@ -175,14 +176,6 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource  {
         tableView.backgroundColor = UIColor(red: 235.0/255.0, green: 235.0/255.0, blue: 235.0/255.0, alpha: 1)
         
         createCurrencyButton()
-    }
-    
-    func checkDeviceOrientation() {
-        if UIDevice.current.orientation.isPortrait {
-            currencyBarButton.transform = CGAffineTransform(scaleX: 1, y: 1)
-        } else if UIDevice.current.orientation.isLandscape {
-            currencyBarButton.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
-        }
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
