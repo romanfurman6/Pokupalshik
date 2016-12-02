@@ -8,10 +8,20 @@
 
 import UIKit
 
+protocol CartViewControllerDelegate {
+    func tapAdd(in vc: CartViewController)
+    func tapPurchase(in vc: CartViewController)
+    func tapCurrency(in vc: CartViewController)
+    func tapBack(in vc: CartViewController)
+}
+
 class CartViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var purchaseButton: UIButton!
+    
+    var delegate: CartViewControllerDelegate?
+    
     var purchasesHistory: PurchasesHistory?
     var productsCart: ProductsCart!
     let currencyBarButton: UIButton = UIButton(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
@@ -28,17 +38,22 @@ class CartViewController: UIViewController {
         for i in productsCart.products {
             _ = Package.service.insert(object: Package(id: newPurchaseID, productId: i.0.id, productCount: Int64(i.1)))
         }
-        productsCart.clearCart()
-        
-        _ = self.navigationController?.popViewController(animated: true)
+        delegate?.tapPurchase(in: self)
         
     }
     
-    func checkProductInPackage() ->  Bool {
-        let editPurchaseId = purchasesHistory?.editPurchase?.id
-        let object = Package.service.fetchObjectBy(id: editPurchaseId!)
-        return object != nil ? true : false
+    func createBackButton() {
+        self.navigationItem.hidesBackButton = true
+        let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(back(sender:)))
+        self.navigationItem.leftBarButtonItem = newBackButton
     }
+    func back(sender: UIBarButtonItem) {
+        delegate?.tapBack(in: self)
+    }
+    
+    
+    //TODO: -DELETE FUNC
+    
     
     func updatePurchase(product: (Product,Int)) {
         let updateProduct = product
@@ -50,7 +65,7 @@ class CartViewController: UIViewController {
         let button = sender as? UIButton
         let cell = button?.superview?.superview as? CartTableViewCell
         let indexPath = tableView.indexPath(for: cell!)
-        var product = productsCart.products[(indexPath?.row)!]
+        let product = productsCart.products[(indexPath?.row)!]
         
         if product.1 > 1 {
             
@@ -58,11 +73,6 @@ class CartViewController: UIViewController {
             cell?.countOfProduct.text = String(productsCart.getCountOf(product: product.0))
             cell?.cartPriceLabel.text = String((productsCart.totalPriceOf(product: product.0)).roundTo(places: 2))
             updatePurchaseButtonLabel()
-            
-            if purchasesHistory != nil {
-                product = productsCart.products[(indexPath?.row)!]
-                updatePurchase(product: product)
-            }
         }
     }
     
@@ -70,17 +80,12 @@ class CartViewController: UIViewController {
         let button = sender as? UIButton
         let cell = button?.superview?.superview as? CartTableViewCell
         let indexPath = tableView.indexPath(for: cell!)
-        var product = productsCart.products[(indexPath?.row)!]
+        let product = productsCart.products[(indexPath?.row)!]
         
         productsCart.duplicate(product: product.0)
         cell?.countOfProduct.text = String(productsCart.getCountOf(product: product.0))
         cell?.cartPriceLabel.text = String((productsCart.totalPriceOf(product: product.0)).roundTo(places: 2))
         updatePurchaseButtonLabel()
-        
-        if purchasesHistory != nil {
-            product = productsCart.products[(indexPath?.row)!]
-            updatePurchase(product: product)
-        }
     }
     
     func createCurrencyButton() {
@@ -90,12 +95,7 @@ class CartViewController: UIViewController {
     }
     
     func chooseCurrency() {
-        guard let currencyTableVC = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "CurrencyTableViewController") as? CurrencyTableViewController else {
-            return
-        }
-        
-        let navController = UINavigationController(rootViewController: currencyTableVC)
-        self.present(navController, animated:true, completion: nil)
+        delegate?.tapCurrency(in: self)
     }
 }
 
@@ -121,6 +121,11 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource  {
         
         cell.plusButton.addTarget(self, action: #selector(plusProductCount(_:)), for: .touchUpInside)
         
+        if purchasesHistory != nil {
+            cell.minusButton.isHidden = true
+            cell.plusButton.isHidden = true
+        }
+        
         return cell
     }
     
@@ -128,9 +133,10 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource  {
         super.viewWillAppear(animated)
         tableView.reloadData()
         updatePurchaseButtonLabel()
+        createBackButton()
     }
     func dismissVC() {
-        _ = navigationController?.popToRootViewController(animated: true)
+        delegate?.tapAdd(in: self)
     }
     
     func createAlert() {
@@ -144,6 +150,8 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = "Cart"
         updatePurchaseButtonLabel()
         
         if purchasesHistory != nil {
@@ -179,8 +187,8 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource  {
                 
                 let editPurchase = (purchasesHistory?.editPurchase)!
                 _ = Package.service.deleteProduct(purchaseId: editPurchase.id, productId: product.0.id)
-                
-                if !checkProductInPackage() {
+                let purchace = Purchase.service.fetchObjectBy(id: editPurchase.id)
+                if purchace != nil {
                     _ = Purchase.service.deleteObject(withId: editPurchase.id)
                 } else {
                     _ = Purchase.service.update(object: editPurchase)

@@ -8,10 +8,15 @@
 
 import UIKit
 
+protocol HistoryTableViewControllerDelegate {
+    func didTapCart(in vc: HistoryTableViewController)
+}
+
 class HistoryTableViewController: UITableViewController {
     
-    var purchasesHistory = PurchasesHistory()
-    var productCart = ProductsCart()
+    var purchasesHistory: PurchasesHistory!
+    var productCart: ProductsCart!
+    var delegate: HistoryTableViewControllerDelegate?
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -78,12 +83,6 @@ extension HistoryTableViewController {
     }
     
     func openPurchase() {
-        guard let cartVC = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "CartViewController") as? CartViewController else {
-            return
-        }
-        
-        cartVC.productsCart = productCart
-        cartVC.purchasesHistory = purchasesHistory
-        self.navigationController?.pushViewController(cartVC, animated:true)
+        delegate?.didTapCart(in: self)
     }
 }
