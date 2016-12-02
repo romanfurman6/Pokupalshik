@@ -306,8 +306,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5FA491AB1DD63A7E0078BE41 /* Build configuration list for PBXNativeTarget "Pokupalshik" */;
 			buildPhases = (
-				4045770D2F08715C73179819 /* [CP] Check Pods Manifest.lock */,
 				5F6E0EFC1DF02B2E001EA67C /* SwiftGen */,
+				4045770D2F08715C73179819 /* [CP] Check Pods Manifest.lock */,
 				5FA491951DD63A7E0078BE41 /* Sources */,
 				5FA491961DD63A7E0078BE41 /* Frameworks */,
 				5FA491971DD63A7E0078BE41 /* Resources */,
