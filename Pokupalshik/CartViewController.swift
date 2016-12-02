@@ -49,16 +49,11 @@ class CartViewController: UIViewController {
     }
     func back(sender: UIBarButtonItem) {
         delegate?.tapBack(in: self)
-        _ = navigationController?.popViewController(animated: true)
     }
     
     
     //TODO: -DELETE FUNC
-    func checkProductInPackage() ->  Bool {
-        let editPurchaseId = purchasesHistory?.editPurchase?.id
-        let object = Package.service.fetchObjectBy(id: editPurchaseId!)
-        return object != nil ? true : false
-    }
+    
     
     func updatePurchase(product: (Product,Int)) {
         let updateProduct = product
@@ -70,7 +65,7 @@ class CartViewController: UIViewController {
         let button = sender as? UIButton
         let cell = button?.superview?.superview as? CartTableViewCell
         let indexPath = tableView.indexPath(for: cell!)
-        var product = productsCart.products[(indexPath?.row)!]
+        let product = productsCart.products[(indexPath?.row)!]
         
         if product.1 > 1 {
             
@@ -78,11 +73,6 @@ class CartViewController: UIViewController {
             cell?.countOfProduct.text = String(productsCart.getCountOf(product: product.0))
             cell?.cartPriceLabel.text = String((productsCart.totalPriceOf(product: product.0)).roundTo(places: 2))
             updatePurchaseButtonLabel()
-            
-            if purchasesHistory != nil {
-                product = productsCart.products[(indexPath?.row)!]
-                updatePurchase(product: product)
-            }
         }
     }
     
@@ -90,17 +80,12 @@ class CartViewController: UIViewController {
         let button = sender as? UIButton
         let cell = button?.superview?.superview as? CartTableViewCell
         let indexPath = tableView.indexPath(for: cell!)
-        var product = productsCart.products[(indexPath?.row)!]
+        let product = productsCart.products[(indexPath?.row)!]
         
         productsCart.duplicate(product: product.0)
         cell?.countOfProduct.text = String(productsCart.getCountOf(product: product.0))
         cell?.cartPriceLabel.text = String((productsCart.totalPriceOf(product: product.0)).roundTo(places: 2))
         updatePurchaseButtonLabel()
-        
-        if purchasesHistory != nil {
-            product = productsCart.products[(indexPath?.row)!]
-            updatePurchase(product: product)
-        }
     }
     
     func createCurrencyButton() {
@@ -135,6 +120,11 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource  {
         cell.minusButton.addTarget(self, action: #selector(minusProductCount(_:)), for: .touchUpInside)
         
         cell.plusButton.addTarget(self, action: #selector(plusProductCount(_:)), for: .touchUpInside)
+        
+        if purchasesHistory != nil {
+            cell.minusButton.isHidden = true
+            cell.plusButton.isHidden = true
+        }
         
         return cell
     }
@@ -197,8 +187,8 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource  {
                 
                 let editPurchase = (purchasesHistory?.editPurchase)!
                 _ = Package.service.deleteProduct(purchaseId: editPurchase.id, productId: product.0.id)
-                
-                if !checkProductInPackage() {
+                let purchace = Purchase.service.fetchObjectBy(id: editPurchase.id)
+                if purchace != nil {
                     _ = Purchase.service.deleteObject(withId: editPurchase.id)
                 } else {
                     _ = Purchase.service.update(object: editPurchase)
