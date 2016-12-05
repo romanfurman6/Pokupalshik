@@ -7,68 +7,92 @@
 //
 
 import UIKit
-
-protocol CartCoordinatorDelegate {
-    func didFinish(in Coordinator: CartCoordinator)
-}
+import RxSwift
 
 class CartCoordinator: CoordinatorProtocol {
     
     var navigationController: UINavigationController
     var currencyCoordinator: CurrencyCoordinator?
-    var delegate: CartCoordinatorDelegate?
+    let didFinishCart = PublishSubject<Void>()
     var productsCart: ProductsCart
     var purchaseHistory: PurchasesHistory?
     var cartViewController: CartViewController?
     var historyCoordinator: HistoryCoordinator?
+    let disposeBag = DisposeBag()
     
     init(navigationController: UINavigationController, productsCart: ProductsCart) {
         self.navigationController = navigationController
         self.productsCart = productsCart
         self.cartViewController = StoryboardScene.Main.instantiateCartViewController()
-        cartViewController?.delegate = self
-        
     }
     
     func start() {
         cartViewController?.productsCart = productsCart
         cartViewController?.purchasesHistory = purchaseHistory
         navigationController.pushViewController(cartViewController!, animated: true)
+        
+        cartViewController?
+            .didTapAdd
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] in
+                self?.tapAdd()
+            }).addDisposableTo(disposeBag)
+        cartViewController?
+            .didTapCurrency
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] in
+                self?.tapCurrency()
+            }).addDisposableTo(disposeBag)
+        cartViewController?
+            .didTapBack
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] in
+                self?.tapBack()
+            }).addDisposableTo(disposeBag)
+        cartViewController?
+            .didTapPurchase
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] in
+                self?.tapPurchase()
+            }).addDisposableTo(disposeBag)
+        currencyCoordinator?
+            .didFinish
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] in
+                self?.didFinishCurrency()
+            }).addDisposableTo(disposeBag)
     }
     
     func finish() {
         purchaseHistory = nil
         navigationController.popToRootViewController(animated: true)
         cartViewController = nil
-        delegate?.didFinish(in: self)
+        didFinishCart.onNext(())
     }
 }
 
-extension CartCoordinator: CartViewControllerDelegate {
-    func tapAdd(in vc: CartViewController) {
-        cartViewController?.productsCart.clearCart()
-        self.finish()
+extension CartCoordinator {
+    
+    func tapAdd() {
         
-    }
-    
-    func tapPurchase(in vc: CartViewController) {
-        cartViewController?.productsCart.clearCart()
         self.finish()
     }
     
-    func tapCurrency(in vc: CartViewController) {
-        currencyCoordinator = CurrencyCoordinator(cartVC: vc)
-        currencyCoordinator?.delegate = self
+    func tapPurchase() {
+        
+        self.finish()
+    }
+    
+    func tapCurrency() {
+        currencyCoordinator = CurrencyCoordinator(cartVC: self.cartViewController!)
         currencyCoordinator?.start()
     }
     
-    func tapBack(in vc: CartViewController) {
+    func tapBack() {
         self.finish()
     }
-}
-
-extension CartCoordinator: CurrencyCoordinatorDelegate {
-    func didFinish(in: CurrencyCoordinator) {
+    
+    func didFinishCurrency() {
         currencyCoordinator = nil
     }
 }

@@ -7,16 +7,15 @@
 //
 
 import UIKit
+import RxSwift
 
-protocol HistoryTableViewControllerDelegate {
-    func didTapCart(in vc: HistoryTableViewController)
-}
+
 
 class HistoryTableViewController: UITableViewController {
     
+    let didTapCart = PublishSubject<Void>()
     var purchasesHistory: PurchasesHistory!
     var productCart: ProductsCart!
-    var delegate: HistoryTableViewControllerDelegate?
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -83,6 +82,6 @@ extension HistoryTableViewController {
     }
     
     func openPurchase() {
-        delegate?.didTapCart(in: self)
+        didTapCart.onNext(())
     }
 }

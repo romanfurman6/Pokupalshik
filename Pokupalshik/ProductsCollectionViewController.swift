@@ -1,15 +1,14 @@
 import UIKit
 import MIBadgeButton_Swift
+import RxSwift
 
-protocol ProductsCollectionViewControllerDelegate {
-    func didTapCart(in vc: ProductsCollectionViewController)
-}
 
 class ProductsCollectionViewController: UICollectionViewController {
     
     var cartBarButton: MIBadgeButton = MIBadgeButton(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
     var itemsPerRow: CGFloat = 2
-    var delegate: ProductsCollectionViewControllerDelegate?
+    let didTapCart = PublishSubject<Void>()
+    let disposeBag = DisposeBag()
     let sectionInsets = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
     var productList = [Product]()
     var cart: ProductsCart!
@@ -29,7 +28,6 @@ class ProductsCollectionViewController: UICollectionViewController {
         
         collectionView?.backgroundColor = UIColor(red: 235.0/255.0, green: 235.0/255.0, blue: 235.0/255.0, alpha: 1)
         productList = Product.service.fetchObjects()
-        
     }
     
     func checkDeviceOrientation() {
@@ -96,6 +94,7 @@ extension ProductsCollectionViewController {
     func createCartButtonWithBadge() {
         cartBarButton.setImage(UIImage(named: "Cart"), for: .normal)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: cartBarButton)
+        
         cartBarButton.addTarget(self,
                                 action: #selector(handleCartTap),
                                 for: .touchUpInside)
@@ -111,7 +110,7 @@ extension ProductsCollectionViewController {
     }
     
     func handleCartTap() {
-        delegate?.didTapCart(in: self)
+        didTapCart.onNext(())
     }
 }
 

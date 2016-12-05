@@ -195,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				5FA4919B1DD63A7E0078BE41 /* Pokupalshik */,
+				5FA491BB1DD63C0C0078BE41 /* SupportFiles */,
 				5F9C94061DE5F1B900C05665 /* PokupalshikTests */,
 				5FA4919A1DD63A7E0078BE41 /* Products */,
 				D5EF2B97A7762928F0DACF0F /* Pods */,
@@ -214,7 +215,7 @@
 		5FA4919B1DD63A7E0078BE41 /* Pokupalshik */ = {
 			isa = PBXGroup;
 			children = (
-				5FA491BB1DD63C0C0078BE41 /* SupportFiles */,
+				5FBDD2691DEDA8D400997739 /* AppCoordinator.swift */,
 				5F6B504B1DE44805005052E3 /* Currency */,
 				5FA491C01DD641DC0078BE41 /* ProductsList */,
 				5F2DF53E1DDC70EA00AD667D /* Cart */,
@@ -243,7 +244,6 @@
 			children = (
 				5FA4919C1DD63A7E0078BE41 /* AppDelegate.swift */,
 				5F2DF5441DDCB0B500AD667D /* Main.storyboard */,
-				5FBDD2691DEDA8D400997739 /* AppCoordinator.swift */,
 				5FBDD2711DEDAAE400997739 /* CoordinatorProtocol.swift */,
 				5F6E0EFD1DF032AD001EA67C /* Storyboards.swift */,
 				5FA491B11DD63B5A0078BE41 /* Extension.swift */,
@@ -252,6 +252,7 @@
 				5FA491A81DD63A7E0078BE41 /* Info.plist */,
 			);
 			name = SupportFiles;
+			path = Pokupalshik;
 			sourceTree = "<group>";
 		};
 		5FA491C01DD641DC0078BE41 /* ProductsList */ = {

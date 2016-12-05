@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxSwift
+
 
 class ProductsListCoordinator: CoordinatorProtocol {
     
@@ -15,40 +17,42 @@ class ProductsListCoordinator: CoordinatorProtocol {
     let cart = ProductsCart()
     var productListCollectionViewController: ProductsCollectionViewController?
     var cartCoordinator: CartCoordinator?
+    let disposeBag = DisposeBag()
     
  init(navigationController: UINavigationController, tabBarItem: UITabBarItem) {
         self.navigationController = navigationController
         self.tabBarItem = tabBarItem
     }
     
-    
     func start() {
         self.productListCollectionViewController = StoryboardScene.Main.instantiateProductsCollectionViewController()
         navigationController.pushViewController(productListCollectionViewController!, animated: true)
-        productListCollectionViewController?.delegate = self
+        
+        productListCollectionViewController?.didTapCart
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] in
+                self?.didTapCart()
+            }).addDisposableTo(disposeBag)
+        
+        cartCoordinator?.didFinishCart
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] in
+                self?.didFinish()
+            }).addDisposableTo(disposeBag)
+        
         productListCollectionViewController?.cart = cart
-        cartCoordinator?.delegate = self
     }
-    func finish() {
-    
-    }
+    func finish() {}
 }
 
-
-extension ProductsListCoordinator: ProductsCollectionViewControllerDelegate {
-    func didTapCart(in vc: ProductsCollectionViewController) {
+extension ProductsListCoordinator {
+    func didTapCart() {
         cartCoordinator = CartCoordinator(navigationController: navigationController, productsCart: cart)
         cartCoordinator?.navigationController = navigationController
         cartCoordinator?.productsCart = cart
-        cartCoordinator?.delegate = self
         cartCoordinator?.start()
     }
-}
-
-extension ProductsListCoordinator: CartCoordinatorDelegate {
-    func didFinish(in: CartCoordinator) {
+    func didFinish() {
         cartCoordinator = nil
     }
 }
-
-

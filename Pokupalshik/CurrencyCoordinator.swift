@@ -7,42 +7,43 @@
 //
 
 import UIKit
-
-protocol CurrencyCoordinatorDelegate {
-    func didFinish(in coordinator: CurrencyCoordinator)
-}
+import RxSwift
 
 class CurrencyCoordinator: CoordinatorProtocol {
     
     var navigationController: UINavigationController?
     let cartVC: CartViewController
-    var delegate: CurrencyCoordinatorDelegate?
+    let didFinish = PublishSubject<Void>()
     var currencyViewController: CurrencyTableViewController?
+    let disposeBag = DisposeBag()
     
     init(cartVC: CartViewController) {
         
         self.currencyViewController = StoryboardScene.Main.instantiateCurrencyTableViewController()
         self.cartVC = cartVC
         self.navigationController = UINavigationController(rootViewController: currencyViewController!)
-        currencyViewController?.delegate = self
+        currencyViewController?
+            .tapSave
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] in
+                self?.tapSave()
+            }).addDisposableTo(disposeBag)
     }
     
     func start() {
-            cartVC.present(navigationController!, animated: true, completion: nil)
-        
+        cartVC.present(navigationController!, animated: true, completion: nil)
     }
     
     func finish() {
         navigationController?.presentingViewController?.dismiss(animated: true, completion: nil)
         currencyViewController = nil
         navigationController = nil
-        delegate?.didFinish(in: self)
+        didFinish.onNext(())
     }
 }
 
-extension CurrencyCoordinator: CurrencyTableViewControllerDelegate {
-    func tapSave(in vc: CurrencyTableViewController) {
-        vc.storage.removeAll()
+extension CurrencyCoordinator {
+    func tapSave() {
         self.finish()
     }
 }

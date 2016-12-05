@@ -1,6 +1,7 @@
 
 
 import UIKit
+import RxSwift
 
 protocol ProductCollectionViewCellDelegate {
     func touchBegan(cell: ProductCollectionViewCell, event: UIEvent)
@@ -24,7 +25,6 @@ class ProductCollectionViewCell: UICollectionViewCell {
         if let cellDelegate = self.delegate {
             cellDelegate.touchBegan(cell: self, event: event!)
         }
-
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {

@@ -7,10 +7,7 @@
 //
 
 import UIKit
-
-protocol CurrencyTableViewControllerDelegate {
-    func tapSave(in vc: CurrencyTableViewController)
-}
+import RxSwift
 
 class CurrencyTableViewController: UITableViewController {
     
@@ -19,11 +16,12 @@ class CurrencyTableViewController: UITableViewController {
             self.tableView.reloadData()
         }
     }
-    var delegate: CurrencyTableViewControllerDelegate?
+    let tapSave = PublishSubject<Void>()
     var currencyStorage = CurrencyStorage.shared
     
     @IBAction func dismiss(sender: AnyObject) {
-        delegate?.tapSave(in: self)
+        storage.removeAll()
+        tapSave.onNext(())
     }
     func createAlertController() {
         let alert = UIAlertController(title: "Unable to connect to the server", message: "Please verify that your device can connect to the internet.", preferredStyle: UIAlertControllerStyle.alert)
