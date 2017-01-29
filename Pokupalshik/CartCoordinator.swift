@@ -37,24 +37,28 @@ class CartCoordinator: CoordinatorProtocol {
             .subscribe(onNext: { [weak self] in
                 self?.tapAdd()
             }).addDisposableTo(disposeBag)
+        
         cartViewController?
             .didTapCurrency
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] in
                 self?.tapCurrency()
             }).addDisposableTo(disposeBag)
+        
         cartViewController?
             .didTapBack
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] in
                 self?.tapBack()
             }).addDisposableTo(disposeBag)
+        
         cartViewController?
             .didTapPurchase
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] in
                 self?.tapPurchase()
             }).addDisposableTo(disposeBag)
+        
         currencyCoordinator?
             .didFinish
             .observeOn(MainScheduler.instance)

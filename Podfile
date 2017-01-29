@@ -8,6 +8,8 @@ pod 'SQLite.swift', '~> 0.11'
 pod "MIBadgeButton-Swift", :git => 'https://github.com/mustafaibrahim989/MIBadgeButton-Swift.git', :branch => 'master'
 pod 'Alamofire', '~> 4.0'
 pod 'RxSwift', '~> 3.0'
+pod 'RxCocoa', '~> 3.0'
+pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift3'
 
 
 

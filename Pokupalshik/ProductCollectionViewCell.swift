@@ -15,6 +15,9 @@ class ProductCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var currencyNameLabel: UILabel!
+    let touchesBegan = PublishSubject<UIEvent>()
+    let touchesCancelled = PublishSubject<UIEvent>()
+    let touchesEnded = PublishSubject<UIEvent>()
     
     var delegate: ProductCollectionViewCellDelegate?
     
@@ -25,6 +28,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
         if let cellDelegate = self.delegate {
             cellDelegate.touchBegan(cell: self, event: event!)
         }
+ 
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -35,8 +39,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-            self.transform = CGAffineTransform(scaleX: 1, y: 1)
-       
+        self.transform = CGAffineTransform(scaleX: 1, y: 1)
         if let cellDelegate = self.delegate {
             cellDelegate.touchEnded(cell: self, event: event!)
         }

@@ -44,7 +44,6 @@ class ProductsCollectionViewController: UICollectionViewController {
         checkDeviceOrientation()
     }
     
-    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return productList.count
     }
@@ -74,7 +73,6 @@ class ProductsCollectionViewController: UICollectionViewController {
     
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
         super.willTransition(to: newCollection, with: coordinator)
-        
         collectionView?.collectionViewLayout.invalidateLayout()
     }
     
@@ -103,7 +101,6 @@ extension ProductsCollectionViewController {
     func updateBadgeCounter() {
         if cart.countOfProduct == 0 {
             cartBarButton.badgeString = nil
-            
         } else {
             cartBarButton.badgeString = "\(cart.countOfProduct)"
         }

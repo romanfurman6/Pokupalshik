@@ -1,7 +1,10 @@
 PODS:
   - Alamofire (4.0.1)
   - MIBadgeButton-Swift (0.5)
+  - RxCocoa (3.0.1):
+    - RxSwift (~> 3.0)
   - RxSwift (3.0.1)
+  - Spring (1.0.3)
   - SQLite.swift (0.11.0):
     - SQLite.swift/standard (= 0.11.0)
   - SQLite.swift/standard (0.11.0)
@@ -9,25 +12,35 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 4.0)
   - MIBadgeButton-Swift (from `https://github.com/mustafaibrahim989/MIBadgeButton-Swift.git`, branch `master`)
+  - RxCocoa (~> 3.0)
   - RxSwift (~> 3.0)
+  - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift3`)
   - SQLite.swift (~> 0.11)
 
 EXTERNAL SOURCES:
   MIBadgeButton-Swift:
     :branch: master
     :git: https://github.com/mustafaibrahim989/MIBadgeButton-Swift.git
+  Spring:
+    :branch: swift3
+    :git: https://github.com/MengTo/Spring.git
 
 CHECKOUT OPTIONS:
   MIBadgeButton-Swift:
     :commit: 44b28fd7c9071439861f9b0c366c84a55ffd7e53
     :git: https://github.com/mustafaibrahim989/MIBadgeButton-Swift.git
+  Spring:
+    :commit: 3a9227c6e9157e7b47f5ac1ee5abab2a56b50002
+    :git: https://github.com/MengTo/Spring.git
 
 SPEC CHECKSUMS:
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
   MIBadgeButton-Swift: 9e57309b00b168d75ca8fecb45bc75124a8ffddf
+  RxCocoa: 15a52fc590dcc700cb4a690a633b5c5184ce3a78
   RxSwift: af5680055c4ad04480189c52d28385b1029493a6
+  Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
   SQLite.swift: 9a26273607d3077a2e5a8d33486e9989f8404c7d
 
-PODFILE CHECKSUM: 019b1b83f06f76fbe2193358a641cda2e2ebdd41
+PODFILE CHECKSUM: e4771334956cde491cf36cda122a9764ab3c9a49
 
 COCOAPODS: 1.0.1

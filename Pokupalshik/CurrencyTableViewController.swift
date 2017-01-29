@@ -11,18 +11,28 @@ import RxSwift
 
 class CurrencyTableViewController: UITableViewController {
     
-    var storage = [Currency]() {
+    var storage = Variable([Currency]())
+        
+    /*.value {
         didSet {
             self.tableView.reloadData()
         }
-    }
+    }*/
+    
     let tapSave = PublishSubject<Void>()
     var currencyStorage = CurrencyStorage.shared
+    let disposeBag = DisposeBag()
     
     @IBAction func dismiss(sender: AnyObject) {
-        storage.removeAll()
+        storage.value.removeAll()
         tapSave.onNext(())
     }
+    
+    func createTable() {
+        
+//        storage.asObservable().bindTo(tableView.rx.base.dequeueReusableCell(withIdentifier: "cell"))
+    }
+    
     func createAlertController() {
         let alert = UIAlertController(title: "Unable to connect to the server", message: "Please verify that your device can connect to the internet.", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
@@ -30,6 +40,15 @@ class CurrencyTableViewController: UITableViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    func getCurrencies() {
+        return APIManager.shared.getCurrencies()
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { currency in
+                self.storage.value = currency
+            }).addDisposableTo(disposeBag)
+    }
+    
+    /*
     func getCurrencies() {
         return APIManager.shared.getCurrencies {
             (currency:[Currency]?, error: Error?) in
@@ -43,24 +62,25 @@ class CurrencyTableViewController: UITableViewController {
             }
         }
     }
+    */
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        getCurrencies()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getCurrencies()
         title = "Currencies"
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return storage.count
+        return storage.value.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "currencyCell", for: indexPath) as! CurrencyTableViewCell
         
-        cell.currecyNameLabel.text = storage[indexPath.row].name
+        cell.currecyNameLabel.text = storage.value[indexPath.row].name
         
         if CurrencyStorage.shared.currentCurrency.name == cell.currecyNameLabel.text {
             cell.accessoryType = .checkmark
@@ -82,7 +102,8 @@ class CurrencyTableViewController: UITableViewController {
         if let cell = tableView.cellForRow(at: indexPath) {
             cell.accessoryType = .checkmark
         }
-        let currency = storage[indexPath.row]
+        print("Tap")
+        let currency = storage.value[indexPath.row]
         CurrencyStorage.shared.currentCurrency = currency
     }
 }

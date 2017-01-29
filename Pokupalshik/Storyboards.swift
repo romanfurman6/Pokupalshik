@@ -72,6 +72,15 @@ struct StoryboardScene {
       return vc
     }
 
+    case CurrencyViewControllerScene = "CurrencyViewController"
+    static func instantiateCurrencyViewController() -> CurrencyViewController {
+      guard let vc = StoryboardScene.Main.CurrencyViewControllerScene.viewController() as? CurrencyViewController
+      else {
+        fatalError("ViewController 'CurrencyViewController' is not of the expected class CurrencyViewController.")
+      }
+      return vc
+    }
+
     case HistoryTableViewControllerScene = "HistoryTableViewController"
     static func instantiateHistoryTableViewController() -> HistoryTableViewController {
       guard let vc = StoryboardScene.Main.HistoryTableViewControllerScene.viewController() as? HistoryTableViewController

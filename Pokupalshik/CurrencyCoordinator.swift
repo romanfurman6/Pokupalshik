@@ -14,12 +14,12 @@ class CurrencyCoordinator: CoordinatorProtocol {
     var navigationController: UINavigationController?
     let cartVC: CartViewController
     let didFinish = PublishSubject<Void>()
-    var currencyViewController: CurrencyTableViewController?
+    var currencyViewController: CurrencyViewController?
     let disposeBag = DisposeBag()
     
     init(cartVC: CartViewController) {
         
-        self.currencyViewController = StoryboardScene.Main.instantiateCurrencyTableViewController()
+        self.currencyViewController = StoryboardScene.Main.instantiateCurrencyViewController()
         self.cartVC = cartVC
         self.navigationController = UINavigationController(rootViewController: currencyViewController!)
         currencyViewController?

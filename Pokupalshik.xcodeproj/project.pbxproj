@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F02E9F31DF6D8A200848E09 /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F02E9F21DF6D8A100848E09 /* CurrencyViewController.swift */; };
 		5F2DF5311DD8B79800AD667D /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2DF52E1DD8B79800AD667D /* ProductCollectionViewCell.swift */; };
 		5F2DF5331DD8B79800AD667D /* ProductsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2DF5301DD8B79800AD667D /* ProductsCollectionViewController.swift */; };
 		5F2DF5371DD9C80500AD667D /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2DF5361DD9C80500AD667D /* CartTableViewCell.swift */; };
@@ -63,6 +64,7 @@
 
 /* Begin PBXFileReference section */
 		1F17656464689386910180B9 /* Pods_Pokupalshik.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pokupalshik.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F02E9F21DF6D8A100848E09 /* CurrencyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyViewController.swift; sourceTree = "<group>"; };
 		5F2DF52E1DD8B79800AD667D /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		5F2DF5301DD8B79800AD667D /* ProductsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsCollectionViewController.swift; sourceTree = "<group>"; };
 		5F2DF5361DD9C80500AD667D /* CartTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				5FBDD2751DEDCA4300997739 /* CurrencyCoordinator.swift */,
+				5F02E9F21DF6D8A100848E09 /* CurrencyViewController.swift */,
 				5F6B50501DE44820005052E3 /* CurrencyTableViewController.swift */,
 				5F6B504F1DE44820005052E3 /* CurrencyTableViewCell.swift */,
 				5F6B504E1DE44820005052E3 /* CurrencyStorage.swift */,
@@ -498,6 +501,7 @@
 				5FBDD2781DEDCA5300997739 /* CartCoordinator.swift in Sources */,
 				5F2DF5571DDE1B2C00AD667D /* PurchaseHistory.swift in Sources */,
 				5FA491B61DD63B5A0078BE41 /* Extension.swift in Sources */,
+				5F02E9F31DF6D8A200848E09 /* CurrencyViewController.swift in Sources */,
 				5F2DF54F1DDCF32100AD667D /* HistoryTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
