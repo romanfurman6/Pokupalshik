@@ -1,3 +1,3 @@
 # Pokupalshik
 
-First project  :D
+My first app  :D
